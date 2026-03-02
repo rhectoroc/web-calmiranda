@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 import gsap from 'gsap';
 import { Particles } from './Particles';
@@ -45,18 +45,20 @@ export const HeroSection: React.FC = () => {
                     style={{ y: yBg }}
                     className="absolute inset-0 w-full h-full"
                 >
-                    <AnimatePresence mode="wait">
+                    {IMAGES.map((src, index) => (
                         <motion.img
-                            key={currentImageIndex}
-                            src={IMAGES[currentImageIndex]}
-                            alt={`Construcción moderna ${currentImageIndex + 1}`}
-                            initial={{ opacity: 0, scale: 1.05 }}
-                            animate={{ opacity: 0.4, scale: 1 }}
-                            exit={{ opacity: 0 }}
+                            key={src}
+                            src={src}
+                            alt={`Construcción moderna ${index + 1}`}
+                            initial={{ opacity: 0 }}
+                            animate={{
+                                opacity: index === currentImageIndex ? 0.4 : 0,
+                                scale: index === currentImageIndex ? 1 : 1.05
+                            }}
                             transition={{ duration: 1.5, ease: "easeInOut" }}
                             className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
                         />
-                    </AnimatePresence>
+                    ))}
                 </motion.div>
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-cal-dark/80 via-cal-dark/60 to-cal-dark"></div>
