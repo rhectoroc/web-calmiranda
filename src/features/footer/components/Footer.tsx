@@ -18,12 +18,12 @@ export const Footer: React.FC = () => {
                             <img
                                 src="/logo.png"
                                 alt="CalMiranda"
-                                className="h-32 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                                className="h-40 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                             />
                         </a>
 
-                        <p className="text-white/70 mb-8 max-w-sm leading-relaxed">
-                            La marca líder que redefine los estándares de la construcción a través de la cal de más alta pureza y pintura ecológica en Venezuela.
+                        <p className="text-white/70 mb-8 max-w-sm leading-relaxed italic font-medium">
+                            "La belleza es el resplandor de la verdad. Sin la verdad no hay arte." — <span className="text-cal-emerald-light">Antoni Gaudí</span>
                         </p>
 
                         <div className="flex gap-4">
@@ -56,8 +56,8 @@ export const Footer: React.FC = () => {
                             <li className="flex items-start gap-3 group">
                                 <MapPin className="text-cal-emerald shrink-0 mt-1" size={20} />
                                 <span className="text-white/70 group-hover:text-white transition-colors">
-                                    <span className="block mb-1"><strong>Guatire:</strong> Calle Los Ríos, Galpón Nro. 4, Zona Industrial, Edo. Miranda.</span>
-                                    <span className="block"><strong>Caracas:</strong> Hoyo de la Puerta.</span>
+                                    <span className="block mb-1"><strong>Guatire:</strong> Sector La Mura, Calle Los Ríos, Galpón Nro. 4, Zona Industrial, Edo. Miranda.</span>
+                                    <span className="block"><strong>Caracas:</strong> Av. Principal, Edif. Abuela Flora, Piso 1, Apt 1A, Sector Hoyo de la Puerta, Caracas, Miranda, Zona Postal 1080.</span>
                                 </span>
                             </li>
                             <li className="flex items-center gap-3 group">
@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
                             <li className="flex items-center gap-3 group">
                                 <Mail className="text-cal-emerald shrink-0" size={20} />
                                 <span className="text-white/70 group-hover:text-white transition-colors">
-                                    contacto@calmiranda.com
+                                    inversionesmiranda1311@gmail.com
                                 </span>
                             </li>
                         </ul>
@@ -82,18 +82,33 @@ export const Footer: React.FC = () => {
                         <h4 className="text-lg font-bold font-montserrat mb-6 uppercase tracking-wider text-cal-bone">Enlaces</h4>
 
                         <ul className="space-y-3">
-                            {['Inicio', 'Nosotros', 'Productos', 'Franquicias'].map((link) => (
-                                <li key={link}>
+                            {[
+                                { name: 'Inicio', href: '#inicio' },
+                                { name: 'Nosotros', href: '#nosotros' },
+                                { name: 'Productos', href: '#productos' },
+                                { name: 'Espacios', href: '#espacios' },
+                                { name: 'Franquicias', href: '#franquicias' }
+                            ].map((link) => (
+                                <li key={link.name}>
                                     <a
-                                        href={`#${link.toLowerCase()}`}
+                                        href={link.href}
                                         className="text-white/70 hover:text-cal-emerald transition-colors inline-block relative overflow-hidden group"
                                     >
-                                        {link}
+                                        {link.name}
                                         <span className="absolute bottom-0 left-0 w-full h-px bg-cal-emerald -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
                                     </a>
                                 </li>
                             ))}
                         </ul>
+
+                        <div className="mt-8">
+                            <h4 className="text-sm font-bold font-montserrat mb-4 uppercase tracking-widest text-cal-bone">Horario de Trabajo</h4>
+                            <ul className="text-xs text-white/60 space-y-1">
+                                <li className="flex justify-between"><span>Lun - Vie:</span> <span>8:00 AM - 5:00 PM</span></li>
+                                <li className="flex justify-between"><span>Sab:</span> <span>8:00 AM - 12:00 PM</span></li>
+                                <li className="flex justify-between text-red-400/60 italic"><span>Dom:</span> <span>Cerrado</span></li>
+                            </ul>
+                        </div>
                     </div>
 
                     {/* Map Embed */}
@@ -102,14 +117,14 @@ export const Footer: React.FC = () => {
 
                         <div className="w-full h-40 rounded-xl overflow-hidden border border-white/10 opacity-80 hover:opacity-100 transition-opacity duration-300">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125587.89932147326!2d-66.92487431265893!3d10.455248888047915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58b66e13ab3b%3A0xc6deea2bca5304af!2sHoyo%20de%20la%20puerta!5e0!3m2!1sen!2sve!4v1709346175058!5m2!1sen!2sve"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.6200236034176!2d-66.54313552414739!3d10.463061291880572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDI3JzQ3LjAiTiA2NsKwMzInMjYuMCJX!5e0!3m2!1sen!2sve!4v1709346175058!5m2!1sen!2sve"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
                                 allowFullScreen={false}
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
-                                title="CalMiranda Locations"
+                                title="CalMiranda Location"
                             ></iframe>
                         </div>
                     </div>

@@ -97,7 +97,7 @@ export const ProductsCatalog: React.FC = () => {
                             transition={{ delay: 0.2 }}
                             className="text-lg text-cal-charcoal/70"
                         >
-                            Soluciones integrales para la construcción. Desde la cimentación hasta los acabados finales, CalMiranda le acompaña con la más alta calidad.
+                            Soluciones integrales para la construcción.
                         </motion.p>
                     </div>
 

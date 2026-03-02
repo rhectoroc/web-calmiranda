@@ -22,7 +22,7 @@ export const FranchiseHero: React.FC = () => {
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cal-emerald/10 border border-cal-emerald/20 text-cal-emerald-dark font-semibold text-sm mb-8 animate-pulse"
                 >
                     <Zap size={16} className="fill-cal-emerald" />
-                    <span>🚀 Asesoría Integral: Te acompañamos en la instalación de tu propia planta</span>
+                    <span>Te acompañamos en la instalación de tu propia planta</span>
                 </motion.div>
 
                 <motion.h1

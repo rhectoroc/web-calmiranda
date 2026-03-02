@@ -20,6 +20,25 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
 - El modal muestra la imagen del producto, descripción detallada, especificaciones en una cuadrícula moderna y beneficios clave.
 - Incluye un llamado a la acción directo para solicitar cotización a través del asistente.
 
+### 4. Corrección de Ejecución
+- Se detectó un error al intentar ejecutar `npm run dev` desde la raíz del repositorio.
+- Se corrigió ejecutando el comando dentro del directorio correcto: `/Web/CalMiranda`.
+- El servidor de desarrollo ya se encuentra activo en `http://localhost:5173/`.
+
+### 5. Actualización de Sedes y Mapa
+- Se actualizó el mapa del pie de página (Footer) con la ubicación exacta solicitada: **10°27'47.0"N 66°32'26.0"W**.
+- Se actualizaron las direcciones físicas de ambas sedes:
+    - **Guatire (Principal):** Sector La Mura, Calle Los Ríos, Galpón Nro. 4, Zona Industrial, Edo. Miranda.
+    - **Caracas:** Av. Principal, Edif. Abuela Flora, Piso 1, Apt 1A, Sector Hoyo de la Puerta, Caracas, Miranda, Zona Postal 1080.
+- Se actualizó el correo electrónico de contacto a: **inversionesmiranda1311@gmail.com**.
+- Se rediseñó parcialmente el pie de página:
+    - Logo agrandado para mayor impacto visual.
+    - Se reemplazó el texto descriptivo por una frase inspiradora de **Antoni Gaudí**.
+    - Se añadió la sección de **Horario de Trabajo** con el detalle de atención semanal.
+- Se sincronizaron los enlaces del pie de página con el menú de navegación principal (Navbar).
+- Se simplificó el texto resaltado en la sección de Franquicias: *"Te acompañamos en la instalación de tu propia planta"*.
+- Se simplificó la descripción del catálogo de productos: *"Soluciones integrales para la construcción"*.
+
 ## Archivos Modificados/Creados
 - `src/features/catalog/types/index.ts` (Modificado)
 - `src/features/catalog/components/ProductsCatalog.tsx` (Modificado)
