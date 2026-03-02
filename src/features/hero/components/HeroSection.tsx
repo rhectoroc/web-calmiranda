@@ -77,6 +77,7 @@ export const HeroSection: React.FC = () => {
 
                     <h1 className="text-6xl md:text-9xl font-bold mb-6 text-white tracking-tighter hero-text-anim leading-tight">
                         <span className="text-cal-emerald">CAL</span>MIRANDA
+                        <span className="sr-only"> - Cal de Alta Pureza y Pintura Ecológica en Venezuela</span>
                     </h1>
 
                     <div className="relative max-w-2xl mx-auto hero-text-anim">

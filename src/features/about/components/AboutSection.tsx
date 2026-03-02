@@ -74,7 +74,7 @@ export const AboutSection: React.FC = () => {
                         >
                             <img
                                 src="/cf1.jpeg"
-                                alt="Experiencia CalMiranda"
+                                alt="Materiales de construcción de alta calidad CalMiranda - 9 años de experiencia"
                                 className="w-full h-full object-contain"
                             />
                         </motion.div>

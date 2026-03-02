@@ -12,28 +12,28 @@ interface MediaItem {
 const media: MediaItem[] = [
     {
         src: "/eeb1.jpeg",
-        alt: "Residencial de lujo",
+        alt: "Residencial de lujo construido con Cal en Pasta CalMiranda",
         type: "image",
         className: "col-span-12 md:col-span-7 row-span-2 h-[450px]",
         speed: 0.1
     },
     {
         src: "/cf.mp4",
-        alt: "Construyendo con Excelencia",
+        alt: "Construyendo con Excelencia - Proceso de obra con CalMiranda",
         type: "video",
         className: "col-span-12 md:col-span-5 row-span-2 h-[450px]",
         speed: -0.05
     },
     {
         src: "/eeb2.jpeg",
-        alt: "Obra comercial",
+        alt: "Obra comercial utilizando agregados CalMiranda",
         type: "image",
         className: "col-span-12 md:col-span-6 row-span-1 h-[250px]",
         speed: -0.02
     },
     {
         src: "/eeb3.jpeg",
-        alt: "Proyecto arquitectónico",
+        alt: "Proyecto arquitectónico finalizado con pintura ecológica CalMiranda",
         type: "image",
         className: "col-span-12 md:col-span-6 row-span-1 h-[250px]",
         speed: 0.08

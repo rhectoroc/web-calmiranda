@@ -38,6 +38,11 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
 - Se sincronizaron los enlaces del pie de página con el menú de navegación principal (Navbar).
 - Se simplificó el texto resaltado en la sección de Franquicias: *"Te acompañamos en la instalación de tu propia planta"*.
 - Se simplificó la descripción del catálogo de productos: *"Soluciones integrales para la construcción"*.
+- **Optimización SEO Integral:**
+    - Se configuraron meta tags descriptivos, Open Graph y Twitter Cards en `index.html`.
+    - Se implementó el marcado estructurado de datos (JSON-LD) para negocios locales.
+    - Se crearon los archivos `robots.txt` y `sitemap.xml` para mejorar la indexación.
+    - Se mejoró la jerarquía semántica del HTML y se optimizaron las etiquetas `alt` de las imágenes.
 
 ## Archivos Modificados/Creados
 - `src/features/catalog/types/index.ts` (Modificado)
