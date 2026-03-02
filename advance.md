@@ -51,6 +51,9 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
     - Se creó un archivo `.env.example` para facilitar la configuración en Easypanel.
 - **Ajustes de Diseño UI:**
     - Se ajustó el contenedor de la imagen de la sede en la sección "Nuestra Historia" para que coincida con las proporciones de la imagen, eliminando espacios vacíos.
+- **Efecto de Escritura en Chatbot:**
+    - Se añadió un indicador animado de "escribiendo..." que se activa cuando el asistente (Diamantín) está procesando una respuesta.
+    - Se aumentó ligeramente el retraso artificial de la respuesta para permitir que el usuario visualice el efecto, mejorando la experiencia de usuario (UX).
 
 ## Archivos Modificados/Creados
 - `src/features/catalog/types/index.ts` (Modificado)

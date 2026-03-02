@@ -113,6 +113,32 @@ export const VirtualAssistant: React.FC = () => {
                                     </div>
                                 </motion.div>
                             ))}
+
+                            {isTyping && (
+                                <motion.div
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    className="flex justify-start"
+                                >
+                                    <div className="bg-white text-cal-charcoal shadow-sm border border-cal-bone rounded-2xl rounded-tl-none px-4 py-3 text-sm flex gap-1 items-center">
+                                        <motion.span
+                                            animate={{ opacity: [0.3, 1, 0.3] }}
+                                            transition={{ repeat: Infinity, duration: 1, delay: 0 }}
+                                            className="w-1.5 h-1.5 bg-cal-charcoal/40 rounded-full"
+                                        />
+                                        <motion.span
+                                            animate={{ opacity: [0.3, 1, 0.3] }}
+                                            transition={{ repeat: Infinity, duration: 1, delay: 0.2 }}
+                                            className="w-1.5 h-1.5 bg-cal-charcoal/40 rounded-full"
+                                        />
+                                        <motion.span
+                                            animate={{ opacity: [0.3, 1, 0.3] }}
+                                            transition={{ repeat: Infinity, duration: 1, delay: 0.4 }}
+                                            className="w-1.5 h-1.5 bg-cal-charcoal/40 rounded-full"
+                                        />
+                                    </div>
+                                </motion.div>
+                            )}
                         </div>
 
                         {/* Input Area */}
