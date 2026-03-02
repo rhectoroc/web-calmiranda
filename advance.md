@@ -50,6 +50,8 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
     - Se configuró el chatbot para enviar mensajes a un flujo de trabajo de n8n.
     - El webhook se conecta dinámicamente mediante la variable de entorno `VITE_N8N_WEBHOOK_URL`.
     - Se creó un archivo `.env.example` para facilitar la configuración en Easypanel.
+    - **Corrección de Variables de Entorno en Docker:** Se modificó el `Dockerfile` para aceptar `VITE_N8N_WEBHOOK_URL` como un argumento de construcción (`ARG`), permitiendo que Easypanel inyecte la URL correctamente durante el build.
+    - Se eliminó la respuesta automática local para permitir que el agente de n8n tome el control total de la conversación.
 - **Ajustes de Diseño UI:**
     - Se ajustó el contenedor de la imagen de la sede en la sección "Nuestra Historia" para que coincida con las proporciones de la imagen, eliminando espacios vacíos.
 - **Efecto de Escritura en Chatbot:**

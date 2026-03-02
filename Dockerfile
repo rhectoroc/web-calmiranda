@@ -7,6 +7,11 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
+
+# Accept build arguments for environment variables
+ARG VITE_N8N_WEBHOOK_URL
+ENV VITE_N8N_WEBHOOK_URL=$VITE_N8N_WEBHOOK_URL
+
 RUN npm run build
 
 # Stage 2: Production
