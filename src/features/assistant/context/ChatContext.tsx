@@ -28,6 +28,7 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     ]);
     const [inputValue, setInputValue] = useState("");
     const [isTyping, setIsTyping] = useState(false);
+    const [sessionId] = useState(() => Math.random().toString(36).substring(7));
 
     const openChat = useCallback(() => setIsOpen(true), []);
     const closeChat = useCallback(() => setIsOpen(false), []);
@@ -52,7 +53,9 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        message: text,
+                        chatInput: text,
+                        action: 'sendMessage',
+                        sessionId: sessionId,
                         timestamp: new Date().toISOString(),
                         source: 'CalMiranda Chatbot'
                     }),
@@ -61,9 +64,20 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                 setIsTyping(false);
 
                 if (!response.ok) {
-                    console.error('Error en la respuesta del webhook:', response.status, response.statusText);
+                    let errorDetail = '';
+                    try {
+                        const errorData = await response.json();
+                        errorDetail = JSON.stringify(errorData);
+                    } catch (e) {
+                        try {
+                            errorDetail = await response.text();
+                        } catch (t) {
+                            errorDetail = 'No se pudo leer el detalle del error';
+                        }
+                    }
+                    console.error('Error en la respuesta del webhook:', response.status, response.statusText, 'Detalle:', errorDetail);
                     setMessages(prev => [...prev, {
-                        text: "Lo siento, tuve un problema al conectar con mi cerebro digital. ¿Podrías intentar de nuevo en un momento?",
+                        text: "Lo siento, tuve un problema al conectar con mi cerebro digital (Error 500). ¿Podrías intentar de nuevo en un momento?",
                         isBot: true
                     }]);
                 } else {
