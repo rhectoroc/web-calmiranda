@@ -44,7 +44,8 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
     - Se crearon los archivos `robots.txt` y `sitemap.xml` para mejorar la indexación.
     - Se mejoró la jerarquía semántica del HTML y se optimizaron las etiquetas `alt` de las imágenes.
 - **Corrección de Errores de Construcción (Build):**
-    - Se eliminó una importación no utilizada (`MessageSquare`) en `VirtualAssistant.tsx` que causaba el fallo del proceso de build de TypeScript durante el despliegue.
+    - Se eliminó una importación no utilizada (`MessageSquare`) en `VirtualAssistant.tsx`.
+    - Se corrigió un error de referencia al añadir la variable `isTyping` en el componente `VirtualAssistant.tsx`, asegurando que el build de TypeScript se complete correctamente.
 - **Integración con n8n (Webhook):**
     - Se configuró el chatbot para enviar mensajes a un flujo de trabajo de n8n.
     - El webhook se conecta dinámicamente mediante la variable de entorno `VITE_N8N_WEBHOOK_URL`.

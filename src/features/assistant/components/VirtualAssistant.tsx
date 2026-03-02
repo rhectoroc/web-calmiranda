@@ -12,7 +12,8 @@ export const VirtualAssistant: React.FC = () => {
         closeChat,
         sendMessage,
         handleInputChange,
-        setInputValue
+        setInputValue,
+        isTyping
     } = useChatContext();
 
     const handleFormSubmit = (e: React.FormEvent) => {
