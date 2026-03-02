@@ -1,66 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 import gsap from 'gsap';
-
-const Particles = () => {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles: { x: number; y: number; radius: number; vx: number; vy: number; alpha: number }[] = [];
-        const particleCount = 100;
-
-        for (let i = 0; i < particleCount; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                radius: Math.random() * 2 + 0.5,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5 - 0.2, // Drift upwards to simulate dust/cal
-                alpha: Math.random() * 0.5 + 0.1,
-            });
-        }
-
-        const animate = () => {
-            requestAnimationFrame(animate);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach((p) => {
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.y < 0) p.y = canvas.height;
-                if (p.x < 0) p.x = canvas.width;
-                if (p.x > canvas.width) p.x = 0;
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(245, 245, 240, ${p.alpha})`; // cal-bone color
-                ctx.fill();
-            });
-        };
-
-        animate();
-
-        const handleResize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-    return <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-60" />;
-};
+import { Particles } from './Particles';
+import { useCarousel } from '../hooks/useCarousel';
 
 const IMAGES = [
     '/Hero1.png',
@@ -68,9 +11,10 @@ const IMAGES = [
     '/Hero3.jpeg'
 ];
 
-export const HeroSection = () => {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+export const HeroSection: React.FC = () => {
+    const { currentImageIndex } = useCarousel(IMAGES);
     const containerRef = useRef<HTMLDivElement>(null);
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"]
@@ -78,6 +22,7 @@ export const HeroSection = () => {
 
     const yText = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+    const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
     useEffect(() => {
         // Initial reveal animation
@@ -86,13 +31,6 @@ export const HeroSection = () => {
             { y: 50, opacity: 0 },
             { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out", delay: 0.2 }
         );
-
-        // Image carousel timer
-        const intervalId = setInterval(() => {
-            setCurrentImageIndex((prev) => (prev + 1) % IMAGES.length);
-        }, 5000); // Change image every 5 seconds
-
-        return () => clearInterval(intervalId);
     }, []);
 
     return (
@@ -104,7 +42,7 @@ export const HeroSection = () => {
             {/* Background Image Carousel with Parallax */}
             <div className="absolute inset-0 z-0">
                 <motion.div
-                    style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "30%"]) }}
+                    style={{ y: yBg }}
                     className="absolute inset-0 w-full h-full"
                 >
                     <AnimatePresence mode="wait">

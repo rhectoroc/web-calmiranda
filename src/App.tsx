@@ -1,29 +1,28 @@
-import { Navbar } from './components/Navbar';
-import { HeroSection } from './components/HeroSection';
-import { AboutSection } from './components/AboutSection';
-import { PillarsSection } from './components/PillarsSection';
-import { ProductsCatalog } from './components/ProductsCatalog';
-import { EmbellishedSpaces } from './components/EmbellishedSpaces';
-import { VirtualAssistant } from './components/VirtualAssistant';
-import { Footer } from './components/Footer';
+import React from 'react';
+import { Navbar } from './features/navigation/components/Navbar';
+import { HeroSection } from './features/hero/components/HeroSection';
+import { AboutSection } from './features/about/components/AboutSection';
+import { PillarsSection } from './features/pillars/components/PillarsSection';
+import { ProductsCatalog } from './features/catalog/components/ProductsCatalog';
+import { EmbellishedSpaces } from './features/gallery/components/EmbellishedSpaces';
+import { VirtualAssistant } from './features/assistant/components/VirtualAssistant';
+import { Footer } from './features/footer/components/Footer';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-cal-bone font-inter text-cal-dark overflow-x-hidden selection:bg-cal-emerald/30 selection:text-cal-emerald-dark">
+    <div className="min-h-screen bg-cal-bone font-inter selection:bg-cal-emerald/30 selection:text-cal-emerald-dark">
       <Navbar />
-
       <main>
         <HeroSection />
         <AboutSection />
+        <EmbellishedSpaces />
         <PillarsSection />
         <ProductsCatalog />
-        <EmbellishedSpaces />
       </main>
-
-      <Footer />
       <VirtualAssistant />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

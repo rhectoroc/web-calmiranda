@@ -1,29 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send } from 'lucide-react';
+import { useChat } from '../hooks/useChat';
 
-export const VirtualAssistant = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState<{ text: string, isBot: boolean }[]>([
-        { text: "¡Hola! Soy Diamantin, tu asistente virtual de CalMiranda. ¿En qué puedo ayudarte hoy?", isBot: true }
-    ]);
-    const [inputValue, setInputValue] = useState("");
+export const VirtualAssistant: React.FC = () => {
+    const {
+        isOpen,
+        messages,
+        inputValue,
+        openChat,
+        closeChat,
+        sendMessage,
+        handleInputChange,
+        setInputValue
+    } = useChat();
 
-    const handleSend = (e: React.FormEvent) => {
+    const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!inputValue.trim()) return;
-
-        // Add user message
-        setMessages(prev => [...prev, { text: inputValue, isBot: false }]);
+        sendMessage(inputValue);
         setInputValue("");
-
-        // Simulate bot response
-        setTimeout(() => {
-            setMessages(prev => [...prev, {
-                text: "¡Gracias por escribirnos! Un asesor de CalMiranda se pondrá en contacto con usted a la brevedad posible. ¿Desea dejarnos su número telefónico?",
-                isBot: true
-            }]);
-        }, 1000);
     };
 
     return (
@@ -33,7 +28,7 @@ export const VirtualAssistant = () => {
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 2, type: "spring" }}
-                onClick={() => setIsOpen(true)}
+                onClick={openChat}
                 className={`fixed bottom-6 right-6 z-50 w-16 h-16 bg-cal-emerald rounded-full shadow-2xl flex items-center justify-center text-white hover:bg-cal-emerald-dark transition-colors duration-300 ${isOpen ? 'hidden' : 'flex'}`}
             >
                 <MessageSquare size={28} />
@@ -78,7 +73,7 @@ export const VirtualAssistant = () => {
                                 </div>
                             </div>
                             <button
-                                onClick={() => setIsOpen(false)}
+                                onClick={closeChat}
                                 className="relative z-10 text-white/80 hover:text-white transition-colors hover:bg-white/10 p-1.5 rounded-lg"
                             >
                                 <X size={20} />
@@ -95,8 +90,8 @@ export const VirtualAssistant = () => {
                                     className={`flex ${msg.isBot ? 'justify-start' : 'justify-end'}`}
                                 >
                                     <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm ${msg.isBot
-                                            ? 'bg-white text-cal-charcoal shadow-sm border border-cal-bone rounded-tl-none'
-                                            : 'bg-cal-emerald text-white shadow-sm rounded-tr-none'
+                                        ? 'bg-white text-cal-charcoal shadow-sm border border-cal-bone rounded-tl-none'
+                                        : 'bg-cal-emerald text-white shadow-sm rounded-tr-none'
                                         }`}>
                                         {msg.text}
                                     </div>
@@ -106,11 +101,11 @@ export const VirtualAssistant = () => {
 
                         {/* Input Area */}
                         <div className="p-4 bg-white border-t border-cal-bone">
-                            <form onSubmit={handleSend} className="flex gap-2 relative">
+                            <form onSubmit={handleFormSubmit} className="flex gap-2 relative">
                                 <input
                                     type="text"
                                     value={inputValue}
-                                    onChange={(e) => setInputValue(e.target.value)}
+                                    onChange={handleInputChange}
                                     placeholder="Escribe tu mensaje..."
                                     className="flex-1 bg-cal-bone/50 border border-cal-bone rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-cal-emerald/20 transition-all font-inter"
                                 />

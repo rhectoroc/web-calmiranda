@@ -1,6 +1,7 @@
+import React from 'react';
 import { MapPin, Phone, Mail, Instagram, Facebook, Twitter } from 'lucide-react';
 
-export const Footer = () => {
+export const Footer: React.FC = () => {
     return (
         <footer id="contacto" className="bg-cal-charcoal text-white pt-24 pb-12 relative overflow-hidden">
             {/* Background Elements */}
@@ -14,7 +15,11 @@ export const Footer = () => {
                     {/* Company Info */}
                     <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
                         <a href="#inicio" className="mb-6 inline-block group">
-                            <img src="/logo.png" alt="CalMiranda" className="h-32 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                            <img
+                                src="/logo.png"
+                                alt="CalMiranda"
+                                className="h-32 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                            />
                         </a>
 
                         <p className="text-white/70 mb-8 max-w-sm leading-relaxed">
@@ -27,6 +32,7 @@ export const Footer = () => {
                                     key={i}
                                     href="#"
                                     className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:bg-cal-emerald hover:text-white hover:border-cal-emerald transition-all duration-300 hover:-translate-y-1"
+                                    aria-label={`Social Icon ${i}`}
                                 >
                                     <Icon size={18} />
                                 </a>
@@ -92,6 +98,7 @@ export const Footer = () => {
                                 allowFullScreen={false}
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
+                                title="CalMiranda Locations"
                             ></iframe>
                         </div>
                     </div>

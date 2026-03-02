@@ -1,8 +1,14 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useScroll } from '../hooks/useScroll';
 
-const navLinks = [
+interface NavLink {
+    name: string;
+    href: string;
+}
+
+const navLinks: NavLink[] = [
     { name: 'Inicio', href: '#inicio' },
     { name: 'Nosotros', href: '#nosotros' },
     { name: 'Espacios Embellecidos', href: '#espacios' },
@@ -10,18 +16,12 @@ const navLinks = [
     { name: 'Contacto', href: '#contacto' },
 ];
 
-export const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
+export const Navbar: React.FC = () => {
+    const isScrolled = useScroll(50);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    const toggleMobileMenu = () => setMobileMenuOpen(prev => !prev);
+    const closeMobileMenu = () => setMobileMenuOpen(false);
 
     return (
         <header
@@ -31,7 +31,11 @@ export const Navbar = () => {
             <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
                 {/* Logo */}
                 <a href="#inicio" className="flex items-center gap-2 group">
-                    <img src="/logo.png" alt="CalMiranda" className="h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+                    <img
+                        src="/logo.png"
+                        alt="CalMiranda"
+                        className="h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                    />
                 </a>
 
                 {/* Desktop Navigation */}
@@ -57,7 +61,7 @@ export const Navbar = () => {
                 {/* Mobile Menu Toggle */}
                 <button
                     className="md:hidden text-cal-charcoal p-2 focus:outline-none"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    onClick={toggleMobileMenu}
                     aria-label="Toggle Menu"
                 >
                     {mobileMenuOpen ? (
@@ -83,7 +87,7 @@ export const Navbar = () => {
                                     key={link.name}
                                     href={link.href}
                                     className="font-medium text-cal-charcoal p-2 hover:bg-white/50 rounded-lg transition-colors"
-                                    onClick={() => setMobileMenuOpen(false)}
+                                    onClick={closeMobileMenu}
                                 >
                                     {link.name}
                                 </a>
@@ -91,7 +95,7 @@ export const Navbar = () => {
                             <a
                                 href="#productos"
                                 className="mt-2 text-center w-full px-6 py-3 rounded-xl bg-cal-emerald text-white font-medium transition-colors hover:bg-cal-emerald-dark"
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={closeMobileMenu}
                             >
                                 Ver Catálogo
                             </a>

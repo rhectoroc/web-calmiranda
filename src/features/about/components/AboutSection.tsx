@@ -1,11 +1,11 @@
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const AboutSection = () => {
+export const AboutSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
     const textContainerRef = useRef<HTMLDivElement>(null);
     const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
@@ -82,7 +82,7 @@ export const AboutSection = () => {
                         {/* Experience Badge */}
                         <motion.div
                             initial={{ scale: 0, opacity: 0 }}
-                            animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+                            animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
                             transition={{ duration: 0.5, delay: 0.8, type: "spring" }}
                             className="absolute top-0 left-10 bg-cal-emerald text-white p-6 rounded-full shadow-xl z-30 flex flex-col items-center justify-center w-32 h-32"
                         >

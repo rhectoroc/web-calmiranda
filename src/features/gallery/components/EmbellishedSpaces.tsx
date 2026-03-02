@@ -1,7 +1,15 @@
-import { useRef } from 'react';
+import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-const media = [
+interface MediaItem {
+    src: string;
+    alt: string;
+    type: 'image' | 'video';
+    className: string;
+    speed: number;
+}
+
+const media: MediaItem[] = [
     {
         src: "/eeb1.jpeg",
         alt: "Residencial de lujo",
@@ -32,8 +40,8 @@ const media = [
     }
 ];
 
-export const EmbellishedSpaces = () => {
-    const sectionRef = useRef<HTMLElement>(null);
+export const EmbellishedSpaces: React.FC = () => {
+    const sectionRef = React.useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ["start end", "end start"]
@@ -79,46 +87,60 @@ export const EmbellishedSpaces = () => {
                 {/* Animated Bento Grid Collage */}
                 <div className="grid grid-cols-12 gap-4 auto-rows-min">
                     {media.map((item, index) => {
-                        // eslint-disable-next-line react-hooks/rules-of-hooks
-                        const yTransform = useTransform(scrollYProgress, [0, 1], [item.speed * 800, -item.speed * 800]);
-
+                        // Hook is called for each item - this is fine as it's a fixed array mapping to a stable UI
+                        // But following rules: hooks should not be inside loops if they are not stable.
+                        // Here useTransform is based on the same scrollYProgress. 
+                        // It's better to keep it in a sub-component for SRP and cleanliness.
                         return (
-                            <motion.div
-                                key={index}
-                                style={{ y: yTransform }}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                className={`relative rounded-3xl overflow-hidden shadow-2xl group ${item.className}`}
-                            >
-                                {item.type === 'video' ? (
-                                    <video
-                                        src={item.src}
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                ) : (
-                                    <img
-                                        src={item.src}
-                                        alt={item.alt}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                )}
-
-                                <div className="absolute inset-0 bg-gradient-to-t from-cal-charcoal/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                                    <span className="text-white font-montserrat font-semibold text-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                        {item.alt}
-                                    </span>
-                                </div>
-                            </motion.div>
+                            <MediaCard key={index} item={item} index={index} scrollYProgress={scrollYProgress} />
                         );
                     })}
                 </div>
             </div>
         </section>
+    );
+};
+
+interface MediaCardProps {
+    item: MediaItem;
+    index: number;
+    scrollYProgress: any; // Using any for MotionValue for simplicity here, but interface would be better
+}
+
+const MediaCard: React.FC<MediaCardProps> = ({ item, index, scrollYProgress }) => {
+    const yTransform = useTransform(scrollYProgress, [0, 1], [item.speed * 800, -item.speed * 800]);
+
+    return (
+        <motion.div
+            style={{ y: yTransform }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            className={`relative rounded-3xl overflow-hidden shadow-2xl group ${item.className}`}
+        >
+            {item.type === 'video' ? (
+                <video
+                    src={item.src}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+            ) : (
+                <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+            )}
+
+            <div className="absolute inset-0 bg-gradient-to-t from-cal-charcoal/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <span className="text-white font-montserrat font-semibold text-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    {item.alt}
+                </span>
+            </div>
+        </motion.div>
     );
 };
