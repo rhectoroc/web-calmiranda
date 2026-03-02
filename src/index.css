@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cal-earth: #8B7355;
+  --color-cal-earth-dark: #6B5B45;
+  --color-cal-sand: #D2B48C;
+  --color-cal-bone: #F5F5F0;
+  --color-cal-emerald: #0ABF04;
+  --color-cal-emerald-dark: #089E03;
+  --color-cal-charcoal: #2C3539;
+  --color-cal-dark: #1A1A1A;
+
+  --font-inter: "Inter", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cal-bone text-cal-dark font-inter antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-montserrat font-bold text-cal-charcoal;
+  }
+}
+
+@layer utilities {
+  .glassmorphism {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-sm;
+  }
+
+  .glassmorphism-dark {
+    @apply bg-cal-dark/80 backdrop-blur-md border border-white/10 shadow-lg;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cal-earth to-cal-emerald;
+  }
+}

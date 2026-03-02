@@ -1,0 +1,134 @@
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MessageSquare, X, Send } from 'lucide-react';
+
+export const VirtualAssistant = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [messages, setMessages] = useState<{ text: string, isBot: boolean }[]>([
+        { text: "¡Hola! Soy Diamantin, tu asistente virtual de CalMiranda. ¿En qué puedo ayudarte hoy?", isBot: true }
+    ]);
+    const [inputValue, setInputValue] = useState("");
+
+    const handleSend = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!inputValue.trim()) return;
+
+        // Add user message
+        setMessages(prev => [...prev, { text: inputValue, isBot: false }]);
+        setInputValue("");
+
+        // Simulate bot response
+        setTimeout(() => {
+            setMessages(prev => [...prev, {
+                text: "¡Gracias por escribirnos! Un asesor de CalMiranda se pondrá en contacto con usted a la brevedad posible. ¿Desea dejarnos su número telefónico?",
+                isBot: true
+            }]);
+        }, 1000);
+    };
+
+    return (
+        <>
+            {/* Floating Toggle Button */}
+            <motion.button
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 2, type: "spring" }}
+                onClick={() => setIsOpen(true)}
+                className={`fixed bottom-6 right-6 z-50 w-16 h-16 bg-cal-emerald rounded-full shadow-2xl flex items-center justify-center text-white hover:bg-cal-emerald-dark transition-colors duration-300 ${isOpen ? 'hidden' : 'flex'}`}
+            >
+                <MessageSquare size={28} />
+
+                {/* Pulsing Badge */}
+                <motion.div
+                    animate={{ scale: [1, 1.2, 1], opacity: [1, 0, 1] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                    className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"
+                />
+
+                {/* Tooltip */}
+                <div className="absolute top-1/2 -translate-y-1/2 right-20 whitespace-nowrap bg-white text-cal-charcoal px-4 py-2 rounded-lg shadow-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                    ¡Hola! Soy Diamantin 👋
+                </div>
+            </motion.button>
+
+            {/* Chat Window */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 50, scale: 0.9 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                        className="fixed bottom-6 right-6 z-50 w-[350px] sm:w-[380px] h-[500px] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col border border-cal-bone"
+                    >
+                        {/* Header */}
+                        <div className="bg-cal-emerald p-4 text-white flex justify-between items-center relative overflow-hidden">
+                            <div className="absolute inset-0 bg-white/10" style={{ backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(255,255,255,0.2) 0%, transparent 20%)', backgroundSize: '20px 20px' }} />
+
+                            <div className="flex items-center gap-3 relative z-10">
+                                <div className="relative">
+                                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-cal-emerald font-bold text-xl">
+                                        D
+                                    </div>
+                                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></div>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-lg leading-tight">Diamantin</h3>
+                                    <span className="text-white/80 text-xs">Asistente Virtual CalMiranda</span>
+                                </div>
+                            </div>
+                            <button
+                                onClick={() => setIsOpen(false)}
+                                className="relative z-10 text-white/80 hover:text-white transition-colors hover:bg-white/10 p-1.5 rounded-lg"
+                            >
+                                <X size={20} />
+                            </button>
+                        </div>
+
+                        {/* Messages Area */}
+                        <div className="flex-1 p-4 overflow-y-auto bg-cal-bone/30 flex flex-col gap-4">
+                            {messages.map((msg, i) => (
+                                <motion.div
+                                    initial={{ opacity: 0, x: msg.isBot ? -10 : 10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    key={i}
+                                    className={`flex ${msg.isBot ? 'justify-start' : 'justify-end'}`}
+                                >
+                                    <div className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm ${msg.isBot
+                                            ? 'bg-white text-cal-charcoal shadow-sm border border-cal-bone rounded-tl-none'
+                                            : 'bg-cal-emerald text-white shadow-sm rounded-tr-none'
+                                        }`}>
+                                        {msg.text}
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Input Area */}
+                        <div className="p-4 bg-white border-t border-cal-bone">
+                            <form onSubmit={handleSend} className="flex gap-2 relative">
+                                <input
+                                    type="text"
+                                    value={inputValue}
+                                    onChange={(e) => setInputValue(e.target.value)}
+                                    placeholder="Escribe tu mensaje..."
+                                    className="flex-1 bg-cal-bone/50 border border-cal-bone rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-cal-emerald/20 transition-all font-inter"
+                                />
+                                <button
+                                    type="submit"
+                                    disabled={!inputValue.trim()}
+                                    className="w-12 h-12 flex-shrink-0 bg-cal-emerald text-white rounded-xl flex items-center justify-center transition-colors hover:bg-cal-emerald-dark disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    <Send size={18} className="translate-x-px" />
+                                </button>
+                            </form>
+                            <div className="text-center mt-3">
+                                <span className="text-[10px] text-cal-charcoal/40 font-medium uppercase tracking-wider">Powered by CalMiranda Tech</span>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </>
+    );
+};
