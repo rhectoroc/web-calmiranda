@@ -45,6 +45,12 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
     - Se mejoró la jerarquía semántica del HTML y se optimizaron las etiquetas `alt` de las imágenes.
 - **Corrección de Errores de Construcción (Build):**
     - Se eliminó una importación no utilizada (`MessageSquare`) en `VirtualAssistant.tsx` que causaba el fallo del proceso de build de TypeScript durante el despliegue.
+- **Integración con n8n (Webhook):**
+    - Se configuró el chatbot para enviar mensajes a un flujo de trabajo de n8n.
+    - El webhook se conecta dinámicamente mediante la variable de entorno `VITE_N8N_WEBHOOK_URL`.
+    - Se creó un archivo `.env.example` para facilitar la configuración en Easypanel.
+- **Ajustes de Diseño UI:**
+    - Se ajustó el contenedor de la imagen de la sede en la sección "Nuestra Historia" para que coincida con las proporciones de la imagen, eliminando espacios vacíos.
 
 ## Archivos Modificados/Creados
 - `src/features/catalog/types/index.ts` (Modificado)

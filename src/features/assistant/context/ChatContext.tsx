@@ -31,11 +31,34 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const closeChat = useCallback(() => setIsOpen(false), []);
     const toggleChat = useCallback(() => setIsOpen(prev => !prev), []);
 
-    const sendMessage = useCallback((text: string) => {
+    const sendMessage = useCallback(async (text: string) => {
         if (!text.trim()) return;
 
+        // Add user message to UI
         setMessages(prev => [...prev, { text, isBot: false }]);
 
+        const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
+
+        if (webhookUrl) {
+            try {
+                // Send to n8n Webhook
+                await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: text,
+                        timestamp: new Date().toISOString(),
+                        source: 'CalMiranda Chatbot'
+                    }),
+                });
+            } catch (error) {
+                console.error('Error sending message to webhook:', error);
+            }
+        }
+
+        // Standard auto-response (can be replaced by n8n response if needed)
         setTimeout(() => {
             setMessages(prev => [...prev, {
                 text: "¡Gracias por escribirnos! Un asesor de CalMiranda se pondrá en contacto con usted a la brevedad posible. ¿Desea dejarnos su número telefónico?",
