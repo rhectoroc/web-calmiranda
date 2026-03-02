@@ -1,7 +1,9 @@
 import React, { useState, memo } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, MessageSquare } from 'lucide-react';
 import type { Product } from '../types';
+import { useChatContext } from '../../assistant/context/ChatContext';
+import { ProductDetailModal } from './ProductDetailModal';
 
 interface ProductCardProps {
     product: Product;
@@ -10,7 +12,16 @@ interface ProductCardProps {
 
 export const ProductCard: React.FC<ProductCardProps> = memo(({ product, index }) => {
     const [isFlipped, setIsFlipped] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const { sendMessage, openChat } = useChatContext();
+
     const Icon = product.icon;
+
+    const handleQuoteRequest = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        openChat();
+        sendMessage(`Hola, me gustaría solicitar una cotización para el producto: ${product.name}`);
+    };
 
     return (
         <motion.div
@@ -52,7 +63,13 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, index })
                             <Icon size={28} />
                         </div>
                         <h3 className="text-2xl font-bold text-cal-charcoal mt-4 mb-2">{product.name}</h3>
-                        <p className="text-cal-emerald font-medium flex items-center gap-1 group cursor-pointer">
+                        <p
+                            className="text-cal-emerald font-medium flex items-center gap-1 group cursor-pointer hover:text-cal-emerald-dark transition-colors"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsModalOpen(true);
+                            }}
+                        >
                             Ver especificaciones técnicas
                             <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                         </p>
@@ -86,11 +103,21 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, index })
                         </ul>
                     </div>
 
-                    <button className="w-full py-3 bg-cal-emerald text-white font-medium rounded-xl hover:bg-cal-emerald-dark transition-colors duration-300">
+                    <button
+                        onClick={handleQuoteRequest}
+                        className="w-full py-3 bg-cal-emerald text-white font-medium rounded-xl hover:bg-cal-emerald-dark transition-colors duration-300 flex items-center justify-center gap-2"
+                    >
+                        <MessageSquare size={18} />
                         Solicitar Cotización
                     </button>
                 </div>
             </motion.div>
+
+            <ProductDetailModal
+                product={product}
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
         </motion.div>
     );
 });

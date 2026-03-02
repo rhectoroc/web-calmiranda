@@ -8,4 +8,6 @@ export interface Product {
     icon: LucideIcon;
     description: string;
     features: string[];
+    specifications?: Record<string, string>;
+    longDescription?: string;
 }

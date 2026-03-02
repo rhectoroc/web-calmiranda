@@ -17,7 +17,13 @@ const products: Product[] = [
             'Excelente trabajabilidad',
             'No requiere reposo largo',
             'Acabado ultra liso'
-        ]
+        ],
+        specifications: {
+            'Presentación': 'Saco de 5 kg',
+            'Color': 'Blanco extra puro',
+            'Rendimiento': '8-10 m² por saco',
+            'Secado': '2-4 horas'
+        }
     },
     {
         id: 'cal-en-pasta-7kg',
@@ -31,7 +37,13 @@ const products: Product[] = [
             'Alta concentración de cal',
             'Ideal para superficies grandes',
             'Fácil aplicación'
-        ]
+        ],
+        specifications: {
+            'Presentación': 'Cuñete de 7 kg',
+            'Color': 'Blanco extra puro',
+            'Rendimiento': '12-15 m² por bulto',
+            'Adherencia': 'Alta'
+        }
     },
     {
         id: 'pipote-de-cal',
@@ -45,7 +57,13 @@ const products: Product[] = [
             'Ahorro por volumen',
             'Calidad certificada CalMiranda',
             'Disponible para despacho inmediato'
-        ]
+        ],
+        specifications: {
+            'Formato': 'Pipote industrial',
+            'Uso': 'Materia prima / Mezclas',
+            'Distribución': 'Venta al mayor',
+            'Pureza': '98% Carbonato de Calcio'
+        }
     }
 ];
 
