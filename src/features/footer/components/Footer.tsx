@@ -84,7 +84,10 @@ export const Footer: React.FC = () => {
                         <ul className="space-y-3">
                             {['Inicio', 'Nosotros', 'Productos', 'Franquicias'].map((link) => (
                                 <li key={link}>
-                                    <a href={`#${link.toLowerCase()}`} className="text-white/70 hover:text-cal-emerald transition-colors inline-block relative overflow-hidden group">
+                                    <a
+                                        href={`#${link.toLowerCase()}`}
+                                        className="text-white/70 hover:text-cal-emerald transition-colors inline-block relative overflow-hidden group"
+                                    >
                                         {link}
                                         <span className="absolute bottom-0 left-0 w-full h-px bg-cal-emerald -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
                                     </a>

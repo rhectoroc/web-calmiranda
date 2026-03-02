@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send } from 'lucide-react';
-import { useChat } from '../hooks/useChat';
+import { useChatContext } from '../context/ChatContext';
 
 export const VirtualAssistant: React.FC = () => {
     const {
@@ -13,7 +13,7 @@ export const VirtualAssistant: React.FC = () => {
         sendMessage,
         handleInputChange,
         setInputValue
-    } = useChat();
+    } = useChatContext();
 
     const handleFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -31,7 +31,16 @@ export const VirtualAssistant: React.FC = () => {
                 onClick={openChat}
                 className={`fixed bottom-6 right-6 z-50 w-16 h-16 bg-cal-emerald rounded-full shadow-2xl flex items-center justify-center text-white hover:bg-cal-emerald-dark transition-colors duration-300 ${isOpen ? 'hidden' : 'flex'}`}
             >
-                <MessageSquare size={28} />
+                <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white/20">
+                    <video
+                        src="/avatar/Avatar_Saludo_Para_Chatbot.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                    />
+                </div>
 
                 {/* Pulsing Badge */}
                 <motion.div
@@ -62,8 +71,15 @@ export const VirtualAssistant: React.FC = () => {
 
                             <div className="flex items-center gap-3 relative z-10">
                                 <div className="relative">
-                                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-cal-emerald font-bold text-xl">
-                                        D
+                                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center overflow-hidden border border-white/20">
+                                        <video
+                                            src="/avatar/Avatar_Saludo_Para_Chatbot.mp4"
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                            className="w-full h-full object-cover"
+                                        />
                                     </div>
                                     <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></div>
                                 </div>
