@@ -43,6 +43,8 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
     - Se implementó el marcado estructurado de datos (JSON-LD) para negocios locales.
     - Se crearon los archivos `robots.txt` y `sitemap.xml` para mejorar la indexación.
     - Se mejoró la jerarquía semántica del HTML y se optimizaron las etiquetas `alt` de las imágenes.
+- **Corrección de Errores de Construcción (Build):**
+    - Se eliminó una importación no utilizada (`MessageSquare`) en `VirtualAssistant.tsx` que causaba el fallo del proceso de build de TypeScript durante el despliegue.
 
 ## Archivos Modificados/Creados
 - `src/features/catalog/types/index.ts` (Modificado)
