@@ -83,16 +83,6 @@ export const ProductsCatalog: React.FC = () => {
                         </motion.p>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                    >
-                        <a href="#" className="hidden md:inline-flex items-center gap-2 px-6 py-3 bg-cal-dark text-white rounded-xl font-medium hover:bg-cal-charcoal transition-colors">
-                            Descargar Fichas Técnicas
-                        </a>
-                    </motion.div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
@@ -101,11 +91,6 @@ export const ProductsCatalog: React.FC = () => {
                     ))}
                 </div>
 
-                <div className="mt-12 text-center md:hidden">
-                    <a href="#" className="inline-flex items-center gap-2 px-8 py-4 bg-cal-dark text-white rounded-xl font-medium hover:bg-cal-charcoal transition-colors">
-                        Descargar Fichas Técnicas
-                    </a>
-                </div>
             </div>
         </section>
     );

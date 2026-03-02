@@ -35,9 +35,8 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, index })
                     className="absolute inset-0 rounded-2xl overflow-hidden shadow-xl bg-white border border-cal-bone"
                     style={{ WebkitBackfaceVisibility: "hidden", backfaceVisibility: "hidden", transform: "translateZ(1px)" }}
                 >
-                    <div className="h-3/5 w-full relative">
-                        <div className="absolute inset-0 bg-cal-charcoal/20 z-10" />
-                        <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                    <div className="h-3/5 w-full relative bg-cal-bone/20 flex items-center justify-center p-6">
+                        <img src={product.image} alt={product.name} className="max-w-full max-h-full object-contain drop-shadow-md" />
                         <div
                             className="absolute top-4 right-4 z-30 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-cal-emerald uppercase tracking-wider shadow-sm"
                             style={{ WebkitBackfaceVisibility: "hidden", backfaceVisibility: "hidden", transform: "translateZ(2px)" }}
