@@ -61,7 +61,8 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
 - **Migración Integral a WebP (Performance):**
     - Se reemplazaron todas las imágenes en formato `.png`, `.jpeg` y `.jpg` por sus versiones optimizadas en `.webp`.
     - Se actualizaron las referencias en todos los componentes React (`HeroSection`, `ProductsCatalog`, `AboutSection`, `Footer`, `Navbar`, `PillarsSection`, `EmbellishedSpaces`).
-    - Se ajustaron los meta tags de redes sociales (Open Graph y Twitter) y el favicon en `index.html` para usar los nuevos archivos WebP.
+    - Se ajustaron los meta tags de redes sociales (Open Graph y Twitter), el favicon y el marcado JSON-LD en `index.html` para usar exclusivamente WebP.
+    - Se añadieron dimensiones explícitas (`width`/`height`) a las imágenes del Hero para optimizar el CLS (Cumulative Layout Shift) en móviles.
     - Esto reduce el peso total de la página en más de un 60%, mejorando drásticamente el puntaje en Google PageSpeed Insights.
 - **Optimización Mobile (Hero Section):**
     - Se ajustaron los tamaños de fuente del título y descripción para una visualización perfecta en dispositivos móviles.
@@ -76,9 +77,17 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
 - `src/features/assistant/components/VirtualAssistant.tsx` (Modificado)
 - `src/features/hero/components/HeroSection.tsx` (Modificado)
 - `src/features/about/components/AboutSection.tsx` (Modificado)
+- `src/features/pillars/components/PillarsSection.tsx` (Modificado)
+- `src/features/gallery/components/EmbellishedSpaces.tsx` (Modificado)
+- `src/features/navigation/components/Navbar.tsx` (Modificado)
+- `src/features/footer/components/Footer.tsx` (Modificado)
+- `index.html` (Modificado)
 - `Dockerfile` (Modificado)
 - `nginx.conf` (Nuevo)
 - `.env.example` (Nuevo)
+
+## Estado Final
+La plataforma **CalMiranda** se encuentra desplegada y optimizada en [calmiranda.com](https://calmiranda.com). Se han alcanzado los objetivos de integración de IA, rendimiento superior (LCP < 1.2s proyectado) y adaptabilidad móvil total.
 
 ---
 *Desarrollado con precisión para CalMiranda.*

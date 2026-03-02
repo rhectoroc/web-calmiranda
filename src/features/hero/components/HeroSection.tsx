@@ -58,6 +58,8 @@ export const HeroSection: React.FC = () => {
                             transition={{ duration: 1.5, ease: "easeInOut" }}
                             fetchPriority={index === 0 ? "high" : "auto"}
                             loading={index === 0 ? "eager" : "lazy"}
+                            width={1920}
+                            height={1080}
                             className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
                         />
                     ))}
