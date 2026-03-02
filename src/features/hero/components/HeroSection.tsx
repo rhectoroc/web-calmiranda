@@ -77,13 +77,13 @@ export const HeroSection: React.FC = () => {
                         </span>
                     </div>
 
-                    <h1 className="text-6xl md:text-9xl font-bold mb-6 text-white tracking-tighter hero-text-anim leading-tight">
+                    <h1 className="text-5xl md:text-9xl font-bold mb-6 text-white tracking-tighter hero-text-anim leading-tight">
                         <span className="text-cal-emerald">CAL</span>MIRANDA
                         <span className="sr-only"> - Cal de Alta Pureza y Pintura Ecológica en Venezuela</span>
                     </h1>
 
                     <div className="relative max-w-2xl mx-auto hero-text-anim">
-                        <p className="text-base md:text-xl text-white/80 mb-8 md:mb-10 leading-relaxed font-light">
+                        <p className="text-sm md:text-xl text-white/80 mb-8 md:mb-10 leading-relaxed font-light px-4">
                             La marca líder que redefine los estándares de la construcción a través de la cal de más alta pureza y pintura ecológica. 9 años de crecimiento y éxito respaldan nuestro profesionalismo.
                         </p>
                         {/* Brand Signature / Slogan - 3D Zoom Effect */}
@@ -101,11 +101,11 @@ export const HeroSection: React.FC = () => {
                                 z: { duration: 1.5, delay: 5 },
                                 y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 6.5 }
                             }}
-                            className="absolute -right-24 md:-right-80 top-0 md:top-4 pointer-events-none z-20"
+                            className="absolute -right-8 md:-right-80 -top-8 md:top-4 pointer-events-none z-20"
                             style={{ perspective: "1000px" }}
                         >
                             <span
-                                className="block text-5xl md:text-7xl text-cal-emerald-light font-bold drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] select-none italic"
+                                className="block text-3xl md:text-7xl text-cal-emerald-light font-bold drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] select-none italic"
                                 style={{ fontFamily: "'Caveat', cursive", color: '#0DF205', textShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}
                             >
                                 ¡Vamos positivos!
