@@ -9,7 +9,7 @@ const products: Product[] = [
         id: 'cal-en-pasta-5kg',
         name: 'Cal en Pasta 5 kg',
         category: 'Construcción',
-        image: '/productos/calpasta5k.png',
+        image: '/productos/calpasta5k.webp',
         icon: Hammer,
         description: 'Cal en pasta líquida de alta pureza, lista para usar. Formulada para garantizar la máxima adherencia en frisos y pegado de bloques, optimizando el tiempo en obra.',
         features: [
@@ -29,7 +29,7 @@ const products: Product[] = [
         id: 'cal-en-pasta-7kg',
         name: 'Cal en Pasta 7 kg',
         category: 'Construcción',
-        image: '/productos/calpasta7k.jpeg',
+        image: '/productos/calpasta7k.webp',
         icon: Droplets,
         description: 'Presentación de 7 kg para proyectos de mayor escala. Mantiene la misma pureza y calidad que nuestra línea estándar, asegurando paredes resistentes y duraderas.',
         features: [
@@ -49,7 +49,7 @@ const products: Product[] = [
         id: 'pipote-de-cal',
         name: 'Pipote de Cal',
         category: 'Materia Prima',
-        image: '/productos/pipotedecal.jpeg',
+        image: '/productos/pipotedecal.webp',
         icon: Loader2,
         description: 'Venta por volumen en formato de pipote. Ideal para contratistas y retail que buscan abastecerse con el agregado esencial para sus mezclas comerciales.',
         features: [

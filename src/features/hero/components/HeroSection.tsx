@@ -6,9 +6,9 @@ import { Particles } from './Particles';
 import { useCarousel } from '../hooks/useCarousel';
 
 const IMAGES = [
-    '/Hero1.png',
-    '/Hero2.jpeg',
-    '/Hero3.jpeg'
+    '/Hero1.webp',
+    '/Hero2.webp',
+    '/Hero3.webp'
 ];
 
 export const HeroSection: React.FC = () => {
@@ -56,6 +56,8 @@ export const HeroSection: React.FC = () => {
                                 scale: index === currentImageIndex ? 1 : 1.05
                             }}
                             transition={{ duration: 1.5, ease: "easeInOut" }}
+                            fetchPriority={index === 0 ? "high" : "auto"}
+                            loading={index === 0 ? "eager" : "lazy"}
                             className="absolute inset-0 w-full h-full object-cover mix-blend-overlay"
                         />
                     ))}

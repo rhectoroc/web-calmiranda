@@ -73,7 +73,7 @@ export const AboutSection: React.FC = () => {
                             className="absolute left-0 bottom-20 w-1/2 aspect-square rounded-2xl overflow-hidden shadow-2xl z-20 border-4 border-white bg-white"
                         >
                             <img
-                                src="/cf1.jpeg"
+                                src="/cf1.webp"
                                 alt="Materiales de construcción de alta calidad CalMiranda - 9 años de experiencia"
                                 className="w-full h-full object-cover"
                             />

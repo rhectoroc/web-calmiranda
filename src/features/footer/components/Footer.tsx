@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
                     <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
                         <a href="#inicio" className="mb-6 inline-block group">
                             <img
-                                src="/logo.png"
+                                src="/logo.webp"
                                 alt="CalMiranda"
                                 className="h-40 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                             />

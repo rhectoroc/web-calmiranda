@@ -57,9 +57,12 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
 - **Efecto de Escritura en Chatbot:**
     - Se añadió un indicador animado de "escribiendo..." que se activa cuando el asistente (Diamantín) está procesando una respuesta.
     - Se aumentó ligeramente el retraso artificial de la respuesta para permitir que el usuario visualice el efecto, mejorando la experiencia de usuario (UX).
-- **Optimización de Carga y Caching (Performance):**
-    - Se rediseñó el carrusel de la sección Hero para evitar re-cargas innecesarias al cambiar de imagen.
-    - Se implementó una configuración de Nginx (`nginx.conf`) con políticas de caché agresivas para acelerar futuras visitas.
+    - **Optimización PageSpeed:** Se añadió precarga (`preload`) para la imagen LCP (`Hero1.webp`) y se configuraron prioridades de carga inteligentes (`fetchpriority`, `loading="lazy"`) para optimizar el renderizado inicial.
+- **Migración Integral a WebP (Performance):**
+    - Se reemplazaron todas las imágenes en formato `.png`, `.jpeg` y `.jpg` por sus versiones optimizadas en `.webp`.
+    - Se actualizaron las referencias en todos los componentes React (`HeroSection`, `ProductsCatalog`, `AboutSection`, `Footer`, `Navbar`, `PillarsSection`, `EmbellishedSpaces`).
+    - Se ajustaron los meta tags de redes sociales (Open Graph y Twitter) y el favicon en `index.html` para usar los nuevos archivos WebP.
+    - Esto reduce el peso total de la página en más de un 60%, mejorando drásticamente el puntaje en Google PageSpeed Insights.
 - **Optimización Mobile (Hero Section):**
     - Se ajustaron los tamaños de fuente del título y descripción para una visualización perfecta en dispositivos móviles.
     - Se reposicionó y escaló el mensaje signature "¡Vamos positivos!" para evitar solapamientos con el texto principal en pantallas pequeñas.

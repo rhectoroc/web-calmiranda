@@ -10,7 +10,7 @@ const pillars = [
         icon: Factory,
         color: 'from-cal-earth to-cal-earth-dark',
         delay: 0,
-        image: '/altaproduccion.jpeg',
+        image: '/altaproduccion.webp',
     },
     {
         title: 'Construcción',

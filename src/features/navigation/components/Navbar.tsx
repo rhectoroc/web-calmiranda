@@ -32,7 +32,7 @@ export const Navbar: React.FC = () => {
                 {/* Logo */}
                 <a href="#inicio" className="flex items-center gap-2 group">
                     <img
-                        src="/logo.png"
+                        src="/logo.webp"
                         alt="CalMiranda"
                         className="h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                     />
