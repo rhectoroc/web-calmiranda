@@ -7,13 +7,13 @@ import type { Product } from '../types';
 const products: Product[] = [
     {
         id: 'cal-en-pasta-5kg',
-        name: 'Cal en Pasta 5kg',
+        name: 'Cal en Pasta 5 kg',
         category: 'Construcción',
         image: '/productos/calpasta5k.png',
         icon: Hammer,
         description: 'Cal en pasta líquida de alta pureza, lista para usar. Formulada para garantizar la máxima adherencia en frisos y pegado de bloques, optimizando el tiempo en obra.',
         features: [
-            'Empaque práctico de 5kg',
+            'Empaque práctico de 5 kg',
             'Excelente trabajabilidad',
             'No requiere reposo largo',
             'Acabado ultra liso'
@@ -21,11 +21,11 @@ const products: Product[] = [
     },
     {
         id: 'cal-en-pasta-7kg',
-        name: 'Cal en Pasta 7kg',
+        name: 'Cal en Pasta 7 kg',
         category: 'Construcción',
         image: '/productos/calpasta7k.jpeg',
         icon: Droplets,
-        description: 'Presentación de 7kg para proyectos de mayor escala. Mantiene la misma pureza y calidad que nuestra línea estándar, asegurando paredes resistentes y duraderas.',
+        description: 'Presentación de 7 kg para proyectos de mayor escala. Mantiene la misma pureza y calidad que nuestra línea estándar, asegurando paredes resistentes y duraderas.',
         features: [
             'Rendimiento optimizado',
             'Alta concentración de cal',

@@ -39,7 +39,7 @@ export const AboutSection: React.FC = () => {
                 <div className="flex flex-col lg:flex-row items-center gap-16">
 
                     {/* Images Asymmetric Layout */}
-                    <div className="w-full lg:w-1/2 relative h-[600px] flex items-center justify-center">
+                    <div className="w-full lg:w-1/2 relative h-[400px] md:h-[600px] flex items-center justify-center mb-12 lg:mb-0">
                         {/* Background shape */}
                         <motion.div
                             initial={{ scale: 0.8, opacity: 0 }}
@@ -84,10 +84,10 @@ export const AboutSection: React.FC = () => {
                             initial={{ scale: 0, opacity: 0 }}
                             animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
                             transition={{ duration: 0.5, delay: 0.8, type: "spring" }}
-                            className="absolute top-0 left-10 bg-cal-emerald text-white p-6 rounded-full shadow-xl z-30 flex flex-col items-center justify-center w-32 h-32"
+                            className="absolute top-0 left-4 md:left-10 bg-cal-emerald text-white p-4 md:p-6 rounded-full shadow-xl z-30 flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32"
                         >
-                            <span className="text-4xl font-bold font-montserrat">9</span>
-                            <span className="text-xs text-center font-medium mt-1 leading-tight uppercase">Años de<br />Experiencia</span>
+                            <span className="text-2xl md:text-4xl font-bold font-montserrat">9</span>
+                            <span className="text-[10px] md:text-xs text-center font-medium mt-1 leading-tight uppercase">Años de<br />Experiencia</span>
                         </motion.div>
                     </div>
 
@@ -97,7 +97,7 @@ export const AboutSection: React.FC = () => {
                             <span className="text-cal-earth-dark font-medium text-sm tracking-wide uppercase">Nuestra Historia</span>
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-cal-charcoal about-text leading-tight">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-cal-charcoal about-text leading-tight">
                             Construyendo el futuro con <span className="text-transparent bg-clip-text bg-gradient-to-r from-cal-earth to-cal-emerald">Excelencia</span>
                         </h2>
 

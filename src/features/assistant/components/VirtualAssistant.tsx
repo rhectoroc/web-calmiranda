@@ -42,7 +42,7 @@ export const VirtualAssistant: React.FC = () => {
 
                 {/* Tooltip */}
                 <div className="absolute top-1/2 -translate-y-1/2 right-20 whitespace-nowrap bg-white text-cal-charcoal px-4 py-2 rounded-lg shadow-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                    ¡Hola! Soy Diamantin 👋
+                    ¡Hola! Soy Diamantín 👋
                 </div>
             </motion.button>
 
@@ -68,7 +68,7 @@ export const VirtualAssistant: React.FC = () => {
                                     <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></div>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-lg leading-tight">Diamantin</h3>
+                                    <h3 className="font-bold text-lg leading-tight">Diamantín</h3>
                                     <span className="text-white/80 text-xs">Asistente Virtual CalMiranda</span>
                                 </div>
                             </div>
@@ -118,7 +118,14 @@ export const VirtualAssistant: React.FC = () => {
                                 </button>
                             </form>
                             <div className="text-center mt-3">
-                                <span className="text-[10px] text-cal-charcoal/40 font-medium uppercase tracking-wider">Powered by CalMiranda Tech</span>
+                                <a
+                                    href="https://adrielssystems.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-[10px] text-cal-charcoal/40 font-medium uppercase tracking-wider hover:text-cal-emerald transition-colors"
+                                >
+                                    Powered by Adriel's Systems
+                                </a>
                             </div>
                         </div>
                     </motion.div>

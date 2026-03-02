@@ -108,7 +108,8 @@ interface MediaCardProps {
 }
 
 const MediaCard: React.FC<MediaCardProps> = ({ item, index, scrollYProgress }) => {
-    const yTransform = useTransform(scrollYProgress, [0, 1], [item.speed * 800, -item.speed * 800]);
+    // Reduce movement on mobile to prevent excessive whitespace/overlap
+    const yTransform = useTransform(scrollYProgress, [0, 1], [item.speed * 400, -item.speed * 400]);
 
     return (
         <motion.div

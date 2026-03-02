@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Instagram, Facebook, Twitter } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 
 export const Footer: React.FC = () => {
     return (
@@ -27,16 +27,24 @@ export const Footer: React.FC = () => {
                         </p>
 
                         <div className="flex gap-4">
-                            {[Instagram, Facebook, Twitter].map((Icon, i) => (
-                                <a
-                                    key={i}
-                                    href="#"
-                                    className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:bg-cal-emerald hover:text-white hover:border-cal-emerald transition-all duration-300 hover:-translate-y-1"
-                                    aria-label={`Social Icon ${i}`}
-                                >
-                                    <Icon size={18} />
-                                </a>
-                            ))}
+                            <a
+                                href="https://www.instagram.com/agregadosmiranda?igsh=MWFiajJhZjVxejg3"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:bg-cal-emerald hover:text-white hover:border-cal-emerald transition-all duration-300 hover:-translate-y-1"
+                                aria-label="Instagram"
+                            >
+                                <Instagram size={18} />
+                            </a>
+                            <a
+                                href="https://www.facebook.com/agregadosmiranda/?_rdr"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:bg-cal-emerald hover:text-white hover:border-cal-emerald transition-all duration-300 hover:-translate-y-1"
+                                aria-label="Facebook"
+                            >
+                                <Facebook size={18} />
+                            </a>
                         </div>
                     </div>
 
@@ -105,9 +113,22 @@ export const Footer: React.FC = () => {
 
                 </div>
 
-                {/* Bottom Bar */}
-                <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50">
-                    <p>&copy; {new Date().getFullYear()} CalMiranda. C.A. Todos los derechos reservados.</p>
+                <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-white/50">
+                    <p>&copy; {new Date().getFullYear()} CalMiranda, C.A. Todos los derechos reservados.</p>
+
+                    <div className="flex items-center gap-2 group">
+                        <span>Desarrollado por</span>
+                        <a
+                            href="https://adrielssystems.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-cal-emerald font-semibold hover:text-cal-emerald-light transition-colors flex items-center gap-1"
+                        >
+                            Adriel's Systems
+                            <span className="w-1 h-1 bg-cal-emerald rounded-full animate-pulse" />
+                        </a>
+                    </div>
+
                     <div className="flex gap-4">
                         <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
                         <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>

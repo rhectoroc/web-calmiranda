@@ -75,16 +75,40 @@ export const HeroSection: React.FC = () => {
                         </span>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight hero-text-anim leading-tight">
-                        Calidad que <br className="hidden md:block" />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cal-sand to-cal-bone">
-                            Construye Confianza
-                        </span>
+                    <h1 className="text-6xl md:text-9xl font-bold mb-6 text-white tracking-tighter hero-text-anim leading-tight">
+                        <span className="text-cal-emerald">CAL</span>MIRANDA
                     </h1>
 
-                    <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed hero-text-anim font-light">
-                        La marca líder que redefine los estándares de la construcción a través de la cal de más alta pureza y pintura ecológica. 9 años de crecimiento y éxito respaldan nuestro profesionalismo.
-                    </p>
+                    <div className="relative max-w-2xl mx-auto hero-text-anim">
+                        <p className="text-base md:text-xl text-white/80 mb-8 md:mb-10 leading-relaxed font-light">
+                            La marca líder que redefine los estándares de la construcción a través de la cal de más alta pureza y pintura ecológica. 9 años de crecimiento y éxito respaldan nuestro profesionalismo.
+                        </p>
+                        {/* Brand Signature / Slogan - 3D Zoom Effect */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.1, z: -500, rotate: -45 }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1,
+                                z: 0,
+                                y: [0, -10, 0] // Subtle infinite float
+                            }}
+                            transition={{
+                                opacity: { duration: 1, delay: 5 },
+                                scale: { duration: 1.5, delay: 5, type: "spring", damping: 10 },
+                                z: { duration: 1.5, delay: 5 },
+                                y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 6.5 }
+                            }}
+                            className="absolute -right-24 md:-right-80 top-0 md:top-4 pointer-events-none z-20"
+                            style={{ perspective: "1000px" }}
+                        >
+                            <span
+                                className="block text-5xl md:text-7xl text-cal-emerald-light font-bold drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] select-none italic"
+                                style={{ fontFamily: "'Caveat', cursive", color: '#0DF205', textShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}
+                            >
+                                ¡Vamos positivos!
+                            </span>
+                        </motion.div>
+                    </div>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 hero-text-anim">
                         <a
