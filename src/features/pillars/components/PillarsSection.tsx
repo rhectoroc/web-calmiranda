@@ -39,7 +39,7 @@ const pillars = [
 
 export const PillarsSection: React.FC = () => {
     return (
-        <section id="franquicias" className="py-24 bg-cal-dark relative overflow-hidden">
+        <section id="pilares" className="py-24 bg-cal-dark relative overflow-hidden">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
 

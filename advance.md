@@ -67,6 +67,9 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
 - **Optimización Mobile (Hero Section):**
     - Se ajustaron los tamaños de fuente del título y descripción para una visualización perfecta en dispositivos móviles.
     - Se reposicionó y escaló el mensaje signature "¡Vamos positivos!" para evitar solapamientos con el texto principal en pantallas pequeñas.
+- **Mejora de Navegación (UX):**
+    - Se corrigió una duplicidad de IDs en el código que causaba que el botón de "Modelo de Inversión" no llegara a la sección correcta.
+    - Ahora, tanto el botón del Hero como el menú de navegación desplazan al usuario directamente a la sección de Franquicias ("Domina el Mercado de la Construcción").
 
 ## Archivos Modificados/Creados
 - `src/features/catalog/types/index.ts` (Modificado)
