@@ -58,26 +58,43 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                     }),
                 });
 
+                setIsTyping(false);
+
                 if (!response.ok) {
                     console.error('Error en la respuesta del webhook:', response.status, response.statusText);
+                    setMessages(prev => [...prev, {
+                        text: "Lo siento, tuve un problema al conectar con mi cerebro digital. ¿Podrías intentar de nuevo en un momento?",
+                        isBot: true
+                    }]);
                 } else {
-                    console.log('Mensaje enviado exitosamente a n8n');
+                    const data = await response.json();
+                    console.log('Respuesta recibida de n8n:', data);
+
+                    // Add n8n's response to messages
+                    // Assuming n8n returns something like { output: "message" } or { message: "text" }
+                    const botResponse = data.output || data.message || data.text || "Recibí tu mensaje, pero no sé cómo responder procesalmente.";
+
+                    setMessages(prev => [...prev, {
+                        text: botResponse,
+                        isBot: true
+                    }]);
                 }
             } catch (error) {
                 console.error('Error de red al conectar con n8n:', error);
+                setIsTyping(false);
+                setMessages(prev => [...prev, {
+                    text: "Parece que hay un problema de conexión. Por favor, asegúrate de estar en línea.",
+                    isBot: true
+                }]);
             }
         } else {
-            console.warn('VITE_N8N_WEBHOOK_URL no está definida. El mensaje no se enviará a n8n.');
-        }
-
-        // Standard auto-response (can be replaced by n8n response if needed)
-        setTimeout(() => {
+            console.warn('VITE_N8N_WEBHOOK_URL no está definida.');
             setIsTyping(false);
             setMessages(prev => [...prev, {
-                text: "¡Gracias por escribirnos! Un asesor de CalMiranda se pondrá en contacto con usted a la brevedad posible. ¿Desea dejarnos su número telefónico?",
+                text: "Mi conexión con n8n no está configurada aún. Por favor, contacta al administrador.",
                 isBot: true
             }]);
-        }, 1500);
+        }
     }, []);
 
     const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
