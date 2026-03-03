@@ -1,8 +1,17 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
+    const location = useLocation();
+
+    const getHref = (href: string) => {
+        if (location.pathname !== '/') {
+            return '/' + href;
+        }
+        return href;
+    };
+
     return (
         <footer id="contacto" className="bg-cal-charcoal text-white pt-24 pb-12 relative overflow-hidden">
             {/* Background Elements */}
@@ -15,13 +24,13 @@ export const Footer: React.FC = () => {
 
                     {/* Company Info */}
                     <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
-                        <a href="#inicio" className="mb-6 inline-block group">
+                        <Link to="/" className="mb-6 inline-block group">
                             <img
                                 src="/logo.webp"
                                 alt="CalMiranda"
                                 className="h-40 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                             />
-                        </a>
+                        </Link>
 
                         <p className="text-white/70 mb-8 max-w-sm leading-relaxed italic font-medium">
                             "La belleza es el resplandor de la verdad. Sin la verdad no hay arte." — <span className="text-cal-emerald-light">Antoni Gaudí</span>
@@ -92,7 +101,7 @@ export const Footer: React.FC = () => {
                             ].map((link) => (
                                 <li key={link.name}>
                                     <a
-                                        href={link.href}
+                                        href={getHref(link.href)}
                                         className="text-white/70 hover:text-cal-emerald transition-colors inline-block relative overflow-hidden group"
                                     >
                                         {link.name}

@@ -43,9 +43,12 @@ const HomePage: React.FC = () => {
   );
 };
 
+import { ScrollToTop } from './shared/components/ScrollToTop';
+
 const App: React.FC = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <ChatProvider>
         <div className="min-h-screen bg-cal-bone font-inter selection:bg-cal-emerald/30 selection:text-cal-emerald-dark">
           <Navbar />

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useScroll } from '../hooks/useScroll';
+import { useLocation, Link } from 'react-router-dom';
 
 interface NavLink {
     name: string;
@@ -19,9 +20,17 @@ const navLinks: NavLink[] = [
 export const Navbar: React.FC = () => {
     const isScrolled = useScroll(50);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const location = useLocation();
 
     const toggleMobileMenu = () => setMobileMenuOpen(prev => !prev);
     const closeMobileMenu = () => setMobileMenuOpen(false);
+
+    const getHref = (href: string) => {
+        if (location.pathname !== '/') {
+            return '/' + href;
+        }
+        return href;
+    };
 
     return (
         <header
@@ -30,19 +39,19 @@ export const Navbar: React.FC = () => {
         >
             <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
                 {/* Logo */}
-                <a href="#inicio" className="flex items-center gap-2 group">
+                <Link to="/" className="flex items-center gap-2 group">
                     <img
                         src="/logo.webp"
                         alt="CalMiranda"
                         className="h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                     />
-                </a>
+                </Link>
 
                 <nav className="hidden md:flex items-center gap-8">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
-                            href={link.href}
+                            href={getHref(link.href)}
                             className={`font-medium text-sm lg:text-base transition-colors duration-300 hover:text-cal-emerald ${isScrolled ? 'text-cal-charcoal' : 'text-white'
                                 }`}
                         >
@@ -50,7 +59,7 @@ export const Navbar: React.FC = () => {
                         </a>
                     ))}
                     <a
-                        href="#productos"
+                        href={getHref('#productos')}
                         className="px-6 py-2.5 rounded-full bg-cal-emerald text-white font-medium text-sm transition-all duration-300 hover:bg-cal-emerald-dark hover:shadow-lg hover:-translate-y-0.5"
                     >
                         Ver Catálogo
@@ -84,7 +93,7 @@ export const Navbar: React.FC = () => {
                             {navLinks.map((link) => (
                                 <a
                                     key={link.name}
-                                    href={link.href}
+                                    href={getHref(link.href)}
                                     className="font-medium text-cal-charcoal p-2 hover:bg-white/50 rounded-lg transition-colors"
                                     onClick={closeMobileMenu}
                                 >
@@ -92,7 +101,7 @@ export const Navbar: React.FC = () => {
                                 </a>
                             ))}
                             <a
-                                href="#productos"
+                                href={getHref('#productos')}
                                 className="mt-2 text-center w-full px-6 py-3 rounded-xl bg-cal-emerald text-white font-medium transition-colors hover:bg-cal-emerald-dark"
                                 onClick={closeMobileMenu}
                             >

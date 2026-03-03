@@ -77,6 +77,10 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
     - Se configuró el enrutamiento dinámico con `react-router-dom` para permitir el acceso a estas páginas sin recargar el sitio.
     - Se actualizaron los enlaces legales en el pie de página (Footer).
     - Se optimizó el `sitemap.xml` para incluir las nuevas rutas legales, mejorando el SEO y la transparencia del sitio.
+- **Corrección de Navegación Cross-Route:**
+    - Se solucionó el problema de navegación desde páginas legales hacia secciones específicas del Inicio (hashes como `#nosotros`).
+    - Se implementó la lógica `getHref` en `Navbar` y `Footer` para añadir `/` automáticamente cuando el usuario no está en la página principal.
+    - Se creó e integró el componente `ScrollToTop` para gestionar el posicionamiento automático de la pantalla al cambiar de ruta o navegar a secciones específicas.
 
 ## Archivos Modificados/Creados
 - `src/features/catalog/types/index.ts` (Modificado)
@@ -94,7 +98,10 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
 - `src/features/legal/components/LegalPage.tsx` (Nuevo)
 - `src/features/legal/constants/privacyPolicy.ts` (Nuevo)
 - `src/features/legal/constants/termsOfService.ts` (Nuevo)
-- `src/App.tsx` (Modificado - Inclusión de Routing)
+- `src/App.tsx` (Modificado - Gestión de Scroll y Rutas)
+- `src/features/navigation/components/Navbar.tsx` (Modificado)
+- `src/features/footer/components/Footer.tsx` (Modificado)
+- `src/shared/components/ScrollToTop.tsx` (Nuevo)
 - `public/sitemap.xml` (Modificado)
 - `index.html` (Modificado)
 - `Dockerfile` (Modificado)
