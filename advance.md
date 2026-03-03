@@ -85,6 +85,9 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
     - Se solucionó el problema de visibilidad en las páginas legales donde el menú se mostraba en color blanco sobre el fondo claro. Ahora el Navbar detecta automáticamente la ruta y aplica contraste oscuro cuando es necesario.
     - Se optimizó el botón "Volver al Inicio" en las páginas legales para garantizar su funcionamiento mediante componentes de enrutamiento estándar (`Link`).
     - Se ajustó el espaciado superior (`padding-top`) en las páginas legales para evitar solapamientos con el Navbar y mejorar la legibilidad del botón de retorno.
+- **Refinamiento del Pie de Página (Footer):**
+    - Se reorganizó el pie de página moviendo el **Horario de Trabajo** debajo del mapa de ubicación.
+    - Se centró el logo de CalMiranda en la primera columna para una mejor alineación estética con la cita y los enlaces sociales inferiores.
 
 ## Archivos Modificados/Creados
 - `src/features/catalog/types/index.ts` (Modificado)

@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
 
                     {/* Company Info */}
-                    <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <div className="lg:col-span-4 flex flex-col items-center text-center">
                         <Link to="/" className="mb-6 inline-block group">
                             <img
                                 src="/logo.webp"
@@ -111,14 +111,6 @@ export const Footer: React.FC = () => {
                             ))}
                         </ul>
 
-                        <div className="mt-8">
-                            <h4 className="text-sm font-bold font-montserrat mb-4 uppercase tracking-widest text-cal-bone">Horario de Trabajo</h4>
-                            <ul className="text-xs text-white/60 space-y-1">
-                                <li className="flex justify-between"><span>Lun - Vie:</span> <span>8:00 AM - 5:00 PM</span></li>
-                                <li className="flex justify-between"><span>Sab:</span> <span>8:00 AM - 12:00 PM</span></li>
-                                <li className="flex justify-between text-red-400/60 italic"><span>Dom:</span> <span>Cerrado</span></li>
-                            </ul>
-                        </div>
                     </div>
 
                     {/* Map Embed */}
@@ -136,6 +128,15 @@ export const Footer: React.FC = () => {
                                 referrerPolicy="no-referrer-when-downgrade"
                                 title="CalMiranda Location"
                             ></iframe>
+                        </div>
+
+                        <div className="mt-8">
+                            <h4 className="text-sm font-bold font-montserrat mb-4 uppercase tracking-widest text-cal-bone">Horario de Trabajo</h4>
+                            <ul className="text-xs text-white/60 space-y-1">
+                                <li className="flex justify-between gap-4"><span>Lun - Vie:</span> <span className="text-white/80">8:00 AM - 5:00 PM</span></li>
+                                <li className="flex justify-between gap-4"><span>Sab:</span> <span className="text-white/80">8:00 AM - 12:00 PM</span></li>
+                                <li className="flex justify-between gap-4 text-red-400/60 italic"><span>Dom:</span> <span>Cerrado</span></li>
+                            </ul>
                         </div>
                     </div>
 
