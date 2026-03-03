@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, FileText, ChevronLeft } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface LegalSection {
     title: string;
@@ -16,8 +16,6 @@ interface LegalPageProps {
 }
 
 export const LegalPage: React.FC<LegalPageProps> = ({ title, lastUpdated, sections, type }) => {
-    const navigate = useNavigate();
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -26,15 +24,16 @@ export const LegalPage: React.FC<LegalPageProps> = ({ title, lastUpdated, sectio
         <div className="min-h-screen bg-cal-bone pt-28 pb-20 px-4">
             <div className="max-w-4xl mx-auto">
                 {/* Back Button */}
-                <motion.button
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    onClick={() => navigate('/')}
-                    className="flex items-center gap-2 text-cal-earth hover:text-cal-emerald-dark font-medium mb-8 transition-colors group"
-                >
-                    <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                    Volver al Inicio
-                </motion.button>
+                <Link to="/">
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="flex items-center gap-2 text-cal-earth hover:text-cal-emerald-dark font-medium mb-8 transition-colors group cursor-pointer"
+                    >
+                        <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                        Volver al Inicio
+                    </motion.div>
+                </Link>
 
                 {/* Header */}
                 <motion.div

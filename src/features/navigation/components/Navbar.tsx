@@ -22,11 +22,14 @@ export const Navbar: React.FC = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
 
+    const isHomePage = location.pathname === '/';
+    const isTransparent = isHomePage && !isScrolled;
+
     const toggleMobileMenu = () => setMobileMenuOpen(prev => !prev);
     const closeMobileMenu = () => setMobileMenuOpen(false);
 
     const getHref = (href: string) => {
-        if (location.pathname !== '/') {
+        if (!isHomePage) {
             return '/' + href;
         }
         return href;
@@ -34,7 +37,7 @@ export const Navbar: React.FC = () => {
 
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${!isTransparent ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
                 }`}
         >
             <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
@@ -52,7 +55,7 @@ export const Navbar: React.FC = () => {
                         <a
                             key={link.name}
                             href={getHref(link.href)}
-                            className={`font-medium text-sm lg:text-base transition-colors duration-300 hover:text-cal-emerald ${isScrolled ? 'text-cal-charcoal' : 'text-white'
+                            className={`font-medium text-sm lg:text-base transition-colors duration-300 hover:text-cal-emerald ${!isTransparent ? 'text-cal-charcoal' : 'text-white'
                                 }`}
                         >
                             {link.name}
@@ -73,9 +76,9 @@ export const Navbar: React.FC = () => {
                     aria-label="Toggle Menu"
                 >
                     {mobileMenuOpen ? (
-                        <X size={24} className={isScrolled ? 'text-cal-charcoal' : 'text-white'} />
+                        <X size={24} className={!isTransparent ? 'text-cal-charcoal' : 'text-white'} />
                     ) : (
-                        <Menu size={24} className={isScrolled ? 'text-cal-charcoal' : 'text-white'} />
+                        <Menu size={24} className={!isTransparent ? 'text-cal-charcoal' : 'text-white'} />
                     )}
                 </button>
             </div>

@@ -81,6 +81,9 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
     - Se solucionó el problema de navegación desde páginas legales hacia secciones específicas del Inicio (hashes como `#nosotros`).
     - Se implementó la lógica `getHref` en `Navbar` y `Footer` para añadir `/` automáticamente cuando el usuario no está en la página principal.
     - Se creó e integró el componente `ScrollToTop` para gestionar el posicionamiento automático de la pantalla al cambiar de ruta o navegar a secciones específicas.
+- **Corrección de Visibilidad UI (Navbar):**
+    - Se solucionó el problema de visibilidad en las páginas legales donde el menú se mostraba en color blanco sobre el fondo claro. Ahora el Navbar detecta automáticamente la ruta y aplica contraste oscuro cuando es necesario.
+    - Se optimizó el botón "Volver al Inicio" en las páginas legales para garantizar su funcionamiento mediante componentes de enrutamiento estándar (`Link`).
 
 ## Archivos Modificados/Creados
 - `src/features/catalog/types/index.ts` (Modificado)
