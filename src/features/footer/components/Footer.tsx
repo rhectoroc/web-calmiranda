@@ -1,11 +1,12 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
     return (
         <footer id="contacto" className="bg-cal-charcoal text-white pt-24 pb-12 relative overflow-hidden">
             {/* Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cal-earth via-cal-emerald to-cal-earth" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-cal-earth via-cal-emerald to-cal-earth" />
             <div className="absolute -top-40 -right-40 w-96 h-96 bg-cal-emerald/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-cal-earth/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -148,8 +149,8 @@ export const Footer: React.FC = () => {
                     </div>
 
                     <div className="flex gap-4">
-                        <a href="#" className="hover:text-white transition-colors">Política de Privacidad</a>
-                        <a href="#" className="hover:text-white transition-colors">Términos de Servicio</a>
+                        <Link to="/politica-de-privacidad" className="hover:text-white transition-colors">Política de Privacidad</Link>
+                        <Link to="/terminos-de-servicio" className="hover:text-white transition-colors">Términos de Servicio</Link>
                     </div>
                 </div>
             </div>

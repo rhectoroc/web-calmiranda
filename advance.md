@@ -71,6 +71,13 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
     - Se corrigió una duplicidad de IDs en el código que causaba que el botón de "Modelo de Inversión" no llegara a la sección correcta.
     - Ahora, tanto el botón del Hero como el menú de navegación desplazan al usuario directamente a la sección de Franquicias ("Domina el Mercado de la Construcción").
 
+- **Secciones Legales (Cumplimiento Venezolano):**
+    - Se desarrollaron las secciones de **Política de Privacidad** y **Términos de Servicio** fundamentadas en el marco legal venezolano (CRBV, Ley de Delitos Informáticos, Ley de Firmas Electrónicas).
+    - Se implementó el componente reutilizable `LegalPage` con estética premium, animaciones suaves y navegación intuitiva.
+    - Se configuró el enrutamiento dinámico con `react-router-dom` para permitir el acceso a estas páginas sin recargar el sitio.
+    - Se actualizaron los enlaces legales en el pie de página (Footer).
+    - Se optimizó el `sitemap.xml` para incluir las nuevas rutas legales, mejorando el SEO y la transparencia del sitio.
+
 ## Archivos Modificados/Creados
 - `src/features/catalog/types/index.ts` (Modificado)
 - `src/features/catalog/components/ProductsCatalog.tsx` (Modificado)
@@ -84,6 +91,11 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
 - `src/features/gallery/components/EmbellishedSpaces.tsx` (Modificado)
 - `src/features/navigation/components/Navbar.tsx` (Modificado)
 - `src/features/footer/components/Footer.tsx` (Modificado)
+- `src/features/legal/components/LegalPage.tsx` (Nuevo)
+- `src/features/legal/constants/privacyPolicy.ts` (Nuevo)
+- `src/features/legal/constants/termsOfService.ts` (Nuevo)
+- `src/App.tsx` (Modificado - Inclusión de Routing)
+- `public/sitemap.xml` (Modificado)
 - `index.html` (Modificado)
 - `Dockerfile` (Modificado)
 - `nginx.conf` (Nuevo)
