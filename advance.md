@@ -84,6 +84,7 @@ Hoy se realizaron mejoras significativas en la experiencia de usuario y la funci
 - **Corrección de Visibilidad UI (Navbar):**
     - Se solucionó el problema de visibilidad en las páginas legales donde el menú se mostraba en color blanco sobre el fondo claro. Ahora el Navbar detecta automáticamente la ruta y aplica contraste oscuro cuando es necesario.
     - Se optimizó el botón "Volver al Inicio" en las páginas legales para garantizar su funcionamiento mediante componentes de enrutamiento estándar (`Link`).
+    - Se ajustó el espaciado superior (`padding-top`) en las páginas legales para evitar solapamientos con el Navbar y mejorar la legibilidad del botón de retorno.
 
 ## Archivos Modificados/Creados
 - `src/features/catalog/types/index.ts` (Modificado)

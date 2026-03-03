@@ -21,7 +21,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ title, lastUpdated, sectio
     }, []);
 
     return (
-        <div className="min-h-screen bg-cal-bone pt-28 pb-20 px-4">
+        <div className="min-h-screen bg-cal-bone pt-40 pb-20 px-4">
             <div className="max-w-4xl mx-auto">
                 {/* Back Button */}
                 <Link to="/">
