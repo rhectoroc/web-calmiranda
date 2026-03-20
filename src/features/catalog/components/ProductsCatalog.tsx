@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Droplets, Hammer, Loader2, Brush, Ruler } from 'lucide-react';
+import { Droplets, Hammer, Loader2, Brush, Ruler, PackageSearch } from 'lucide-react';
 import { ProductCard } from './ProductCard';
 import type { Product } from '../types';
 
@@ -11,18 +11,18 @@ const products: Product[] = [
         category: 'Construcción',
         image: '/productos/calpasta5k.webp',
         icon: Hammer,
-        description: 'Cal en pasta líquida de alta pureza, lista para usar. Ideal para clientes mayoristas (compras mayores a 500 unidades).',
+        description: 'Nuestra presentación estrella para grandes proyectos. Cal en pasta líquida de alta pureza, lista para aplicar. Optimizada para flujos de trabajo intensos.',
         features: [
-            'Empaque práctico de 5 kg',
-            'Excelente trabajabilidad',
-            'No requiere reposo largo',
-            'Acabado ultra liso'
+            'Especial para compras mayores a 500 unidades',
+            'Saco de 5 kg de fácil manipulación',
+            'Acabado ultra liso y máxima blancura',
+            'Garantía de adherencia superior'
         ],
         specifications: {
             'Presentación': 'Saco de 5 kg',
-            'Color': 'Blanco extra puro',
+            'Venta Mínima': 'Mayorista',
             'Rendimiento': '8-10 m² por saco',
-            'Secado': '2-4 horas'
+            'Pureza': 'Grado A+'
         }
     },
     {
@@ -31,18 +31,18 @@ const products: Product[] = [
         category: 'Construcción',
         image: '/productos/calpasta7k.webp',
         icon: Droplets,
-        description: 'Presentación de 7 kg para proyectos de mayor escala. Mantiene la misma pureza y calidad que nuestra línea estándar, asegurando paredes resistentes y duraderas.',
+        description: 'La solución definitiva para maestros de obra. Mayor volumen que asegura la continuidad en pegado de bloques y revestimientos sin interrupciones.',
         features: [
-            'Rendimiento optimizado',
-            'Alta concentración de cal',
-            'Ideal para superficies grandes',
-            'Fácil aplicación'
+            'Cuñete de 7 kg de alto rendimiento',
+            'Consistencia cremosa perfecta',
+            'Ideal para cimentaciones sólidas',
+            'Reduce desperdicios en obra'
         ],
         specifications: {
             'Presentación': 'Cuñete de 7 kg',
-            'Color': 'Blanco extra puro',
-            'Rendimiento': '12-15 m² por bulto',
-            'Adherencia': 'Alta'
+            'Uso': 'Profesional',
+            'Rendimiento': '12-15 m² aprox.',
+            'Adherencia': 'Premium'
         }
     },
     {
@@ -51,58 +51,78 @@ const products: Product[] = [
         category: 'Construcción',
         image: '/Polvo/polvo01.jpeg',
         icon: Ruler,
-        description: 'Cal hidratada de alta pureza en formato de 4 kg. Perfecta para estabilización de suelos y mezclas secas.',
+        description: 'Cal hidratada micronizada de alta reactividad. Esencial para estabilización de suelos y mezclas secas que requieren precisión absoluta.',
         features: [
-            'Alta pureza',
-            'Fácil de mezclar',
-            'Empaque resistente',
-            '98% Carbonato'
+            'Bolsa reforzada de 4 kg',
+            'Pureza certificada del 98%',
+            'Ideal para mezclas de albañilería',
+            'Versatilidad en usos industriales'
         ],
         specifications: {
             'Presentación': 'Bolsa de 4 kg',
+            'Pureza': '98% Carbonato',
             'Tipo': 'Cal Hidratada',
-            'Uso': 'Multiuso / Estabilización',
-            'Pureza': '98% Carbonato'
+            'Granulometría': 'Fina'
         }
     },
     {
         id: 'pintura-ecologica',
         name: 'Pintura Ecológica',
         category: 'Acabados',
-        image: '/Hero2.webp', // Using a generic placeholder for now, or I could use Pintura specific if found
+        image: '/productos/PinturaE.jpg',
         icon: Brush,
-        description: 'Pintura base cal 100% natural, transpirable y antimicrobiana. La mejor opción sostenible para interiores y exteriores.',
+        description: 'Acabado premium artesanal sobre base mineral. Respira salud en tus espacios con nuestra pintura transpirable y 100% libre de químicos tóxicos.',
         features: [
-            '100% Natural',
-            'Antimicrobiana',
-            'Transpirable',
-            'Bajo COV'
+            'Naturalmente antimicrobiana',
+            'Previene formación de hongos',
+            'Ideal para interiores y fachadas',
+            'Sostenible y biodegradable'
         ],
         specifications: {
             'Base': 'Cal de alta pureza',
-            'Propiedad': 'Antimicrobiana',
-            'Ambiente': 'Interiores / Exteriores',
-            'Sostenibilidad': '100% Ecológica'
+            'Propiedad': 'Transpirable',
+            'Ambiente': 'Multi-superficie',
+            'Acabado': 'Mate mineral'
         }
     },
     {
         id: 'pipote-de-cal-en-pasta',
         name: 'Pipote de Cal en Pasta',
-        category: 'Exhibición',
-        image: '/productos/pipotedecal.webp',
+        category: 'Suministros',
+        image: '/productos/pipotecal.png',
         icon: Loader2,
-        description: 'Pipote muestrario grande diseñado para ferreterías. Permite exhibir y almacenar bolsas de cal de manera eficiente.',
+        description: 'Almacenamiento industrial para obras de gran envergadura. El formato más eficiente para el manejo de grandes volúmenes de cal en pasta líquida.',
         features: [
-            'Formato industrial',
-            'Ideal para ferreterías',
-            'Almacenamiento optimizado',
-            'Presencia de marca'
+            'Envase plástico de alta durabilidad',
+            'Tapa con sello de seguridad',
+            'Fácil transporte con carretilla',
+            'Conserva la humedad por meses'
         ],
         specifications: {
-            'Formato': 'Pipote industrial',
-            'Uso': 'Exhibición / Almacenaje',
-            'Capacidad': 'Gran formato',
-            'Material': 'Plástico reforzado'
+            'Formato': 'Industrial',
+            'Uso': 'Constructora / Distribuidor',
+            'Material': 'Polietileno Alta Densidad',
+            'Cierre': 'Hermético'
+        }
+    },
+    {
+        id: 'pipote-muestrario',
+        name: 'Pipote Muestrario',
+        category: 'Exhibición',
+        image: '/productos/pipotemuestrario.webp',
+        icon: PackageSearch,
+        description: 'La herramienta definitiva para el punto de venta. Maximiza tus ventas en ferretería con nuestra unidad de exhibición de alto impacto visual.',
+        features: [
+            'Diseño optimizado para local',
+            'Capacidad para múltiples bolsas',
+            'Publicidad integrada CalMiranda',
+            'Orden y limpieza en el mostrador'
+        ],
+        specifications: {
+            'Tipo': 'Mobiliario de venta',
+            'Uso': 'Ferretería / Retail',
+            'Publicidad': 'Logo Full Color',
+            'Estructura': 'Ligera y resistente'
         }
     }
 ];
