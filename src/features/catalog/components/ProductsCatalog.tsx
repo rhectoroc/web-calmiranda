@@ -91,7 +91,7 @@ const products: Product[] = [
         category: 'Suministros',
         image: '/productos/pipotecal.png',
         icon: Loader2,
-        description: 'Almacenamiento industrial para obras de gran envergadura. El formato más eficiente para el manejo de grandes volúmenes de cal en pasta líquida.',
+        description: 'Presentación industrial para obras de gran envergadura. El formato más eficiente para el manejo de grandes volúmenes de cal en pasta líquida.',
         features: [
             'Contenedor metálico de alta durabilidad',
             'Tapa con sello de seguridad',
@@ -113,7 +113,7 @@ const products: Product[] = [
         icon: PackageSearch,
         description: 'La herramienta definitiva para el punto de venta. Maximiza tus ventas en ferretería con nuestra unidad de exhibición de alto impacto visual.',
         features: [
-            'DISEÑO OPTIMIZADO PARA TU LOCAL, TIENDA O FERRETERÍA',
+            'Diseño optimizado para tu local, tienda o ferretería',
             'Capacidad para múltiples bolsas',
             'Publicidad integrada CalMiranda',
             'Orden y limpieza en el mostrador'

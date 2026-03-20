@@ -34,6 +34,7 @@ const pillars = [
         icon: TrendingUp,
         color: 'from-cal-charcoal to-gray-600',
         delay: 0.3,
+        video: '/franquicia.webm',
     }
 ];
 
