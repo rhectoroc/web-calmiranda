@@ -120,3 +120,69 @@ La plataforma **CalMiranda** se encuentra desplegada y optimizada en [calmiranda
 
 ---
 *Desarrollado con precisión para CalMiranda.*
+
+---
+
+# Avances del Proyecto CalMiranda - 20/03/2026
+
+Sesión enfocada en refinamiento del catálogo de productos, optimización de layout y auditoría responsive completa.
+
+## Mejoras Realizadas
+
+### 1. Catálogo de Productos - Actualización Integral
+- Se actualizaron las **imágenes de todos los productos** utilizando los assets de `/public/productos`:
+    - Cal en Pasta 5 kg → `calpasta5k.webp`
+    - Cal en Pasta 7 kg → `calpasta7k.webp`
+    - Cal en Polvo 4 kg → `polvo01.jpg`
+    - Pintura Ecológica → `PinturaE.jpg`
+    - Pipote de Cal en Pasta → `pipotecal.png`
+    - Pipote Muestrario → `pipotemuestrario.webp`
+- Se creó la nueva tarjeta de producto **"Pipote Muestrario"** con icono `PackageSearch` y categoría "Exhibición".
+- Se corrigió el **material del Pipote de Cal** de plástico a **metal** (acero reforzado) en descripciones y especificaciones.
+- Se cambió la **presentación de Cal en Pasta 7 kg** de "cuñetes" a **"bolsas"**.
+- Se actualizó la descripción de la Cal de 7 kg para destacar la **alta calidad de los frisos y revestimientos**.
+- Se añadió el texto promocional **"Diseño optimizado para tu local, tienda o ferretería"** al Pipote Muestrario.
+- Se cambió la descripción del Pipote de Cal en Pasta de "Almacenamiento" a **"Presentación industrial"**.
+- Se completaron los **detalles de la parte trasera** de todas las tarjetas con descripciones profesionales y especificaciones técnicas detalladas.
+
+### 2. Sección "Nuestros Pilares" - Ajustes de Layout
+- Se intercambió el **video de construcción** al pilar "Alta Producción" y la imagen al pilar "Construcción".
+- Se integró el video **`franquicia.webm`** en el pilar de "Franquicia", completando el contenido multimedia de los 4 pilares.
+
+### 3. Pie de Página (Footer) - Mejoras de Contacto
+- Se separaron las direcciones de **Guatire y Caracas** para que cada una tenga su propio **icono de ubicación** (MapPin).
+- Se añadió un **segundo mapa de Google** para la sede de Caracas (Sector Hoyo de la Puerta), con etiquetas "Sede Principal Guatire" y "Sede Caracas".
+
+### 4. Chatbot (Diamantín) - Optimización de Saludos
+- Se modificó la lógica del chat para **evitar saludos redundantes** cuando el usuario inicia una consulta de producto específica.
+- Se añadió metadata `isFirstMessage` al webhook de n8n para que el agente de IA pueda omitir su introducción.
+- Se corrigieron los **errores de TypeScript** en los manejadores `onClick` de `FranchiseHero.tsx`, `VirtualAssistant.tsx` y `FranchiseFinalCTA.tsx`.
+
+### 5. Auditoría Responsive Completa
+- Se revisaron **todos los componentes principales** del sitio.
+- **ProductCard**: Se añadió soporte **tap-to-flip** (onClick) para que los usuarios móviles puedan ver los detalles al tocar las tarjetas.
+- **VirtualAssistant**: El chat ahora se muestra en **pantalla completa en móvil** (`w-full h-full`) y en tamaño compacto en escritorio (`sm:w-[380px] sm:h-[500px]`).
+- **ProductDetailModal**: Se añadió una altura fija de imagen en móvil (`h-48`) con `shrink-0` para evitar que el contenido se desborde del viewport.
+
+### 6. Texto de Marca
+- Se capitalizó el slogan de marca de "¡Vamos positivos!" a **"¡Vamos Positivo!"**.
+
+## Archivos Modificados/Creados
+- `src/features/catalog/components/ProductsCatalog.tsx` (Modificado - productos, imágenes, especificaciones)
+- `src/features/catalog/components/ProductCard.tsx` (Modificado - tap-to-flip mobile)
+- `src/features/catalog/components/ProductDetailModal.tsx` (Modificado - responsive mobile)
+- `src/features/pillars/components/PillarsSection.tsx` (Modificado - swap video/imagen, video franquicia)
+- `src/features/footer/components/Footer.tsx` (Modificado - iconos de ubicación, mapa Caracas)
+- `src/features/hero/components/HeroSection.tsx` (Modificado - slogan)
+- `src/features/assistant/context/ChatContext.tsx` (Modificado - lógica anti-redundancia)
+- `src/features/assistant/components/VirtualAssistant.tsx` (Modificado - responsive fullscreen mobile)
+- `src/features/franchise/components/FranchiseHero.tsx` (Modificado - imagen eliminada, onClick fix)
+- `src/features/franchise/components/FranchiseFinalCTA.tsx` (Modificado - onClick fix)
+- `src/features/solutions/components/HomeSolutions.tsx` (Nuevo - sección de autoconstrucción)
+- `src/App.tsx` (Modificado - integración HomeSolutions)
+
+## Estado Final
+Build de producción verificado exitosamente (`npm run build` - Exit code: 0). Todos los cambios están listos para despliegue.
+
+---
+*Desarrollado con precisión para CalMiranda.*
