@@ -41,7 +41,7 @@ export const FranchiseFinalCTA: React.FC = () => {
                 </p>
 
                 <motion.button
-                    onClick={openChat}
+                    onClick={() => openChat()}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="group relative inline-flex items-center gap-4 px-10 py-5 bg-white text-cal-charcoal rounded-2xl font-bold text-xl shadow-2xl transition-all hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)]"

@@ -55,7 +55,7 @@ export const FranchiseHero: React.FC = () => {
                     }}
                 >
                     <button
-                        onClick={openChat}
+                        onClick={() => openChat()}
                         className="group relative inline-flex items-center justify-center px-8 py-5 bg-cal-emerald text-white rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-cal-emerald-dark hover:scale-105 active:scale-95 shadow-[0_20px_40px_-10px_rgba(13,242,5,0.3)] hover:shadow-[0_25px_50px_-12px_rgba(13,242,5,0.4)]"
                     >
                         {/* Glow effect */}

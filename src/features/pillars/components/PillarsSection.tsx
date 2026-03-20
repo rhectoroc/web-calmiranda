@@ -10,7 +10,7 @@ const pillars = [
         icon: Factory,
         color: 'from-cal-earth to-cal-earth-dark',
         delay: 0,
-        image: '/altaproduccion.webp',
+        video: '/contruccion.mp4',
     },
     {
         title: 'Construcción',
@@ -18,7 +18,7 @@ const pillars = [
         icon: Construction,
         color: 'from-cal-sand to-cal-earth',
         delay: 0.1,
-        video: '/contruccion.mp4',
+        image: '/altaproduccion.webp',
     },
     {
         title: 'Pintura Ecológica',
