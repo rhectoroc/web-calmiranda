@@ -64,7 +64,7 @@ export const VirtualAssistant: React.FC = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 50, scale: 0.9 }}
                         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                        className="fixed bottom-6 right-6 z-50 w-[350px] sm:w-[380px] h-[500px] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col border border-cal-bone"
+                        className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 z-50 w-full sm:w-[380px] h-full sm:h-[500px] bg-white sm:rounded-2xl shadow-2xl overflow-hidden flex flex-col border border-cal-bone"
                     >
                         {/* Header */}
                         <div className="bg-cal-emerald p-4 text-white flex justify-between items-center relative overflow-hidden">

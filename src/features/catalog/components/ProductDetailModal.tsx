@@ -39,11 +39,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                        className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
+                        className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh] mx-4"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Image Section */}
-                        <div className="md:w-2/5 bg-cal-bone/30 p-8 flex items-center justify-center relative">
+                        <div className="md:w-2/5 h-48 md:h-auto bg-cal-bone/30 p-6 md:p-8 flex items-center justify-center relative shrink-0">
                             <img
                                 src={product.image}
                                 alt={product.name}

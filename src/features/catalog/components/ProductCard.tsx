@@ -31,6 +31,7 @@ export const ProductCard: React.FC<ProductCardProps> = memo(({ product, index })
             transition={{ duration: 0.6, delay: index * 0.2 }}
             className="relative w-full h-[500px]"
             style={{ perspective: 1000 }}
+            onClick={() => setIsFlipped(!isFlipped)}
             onMouseEnter={() => setIsFlipped(true)}
             onMouseLeave={() => setIsFlipped(false)}
         >
