@@ -31,15 +31,15 @@ const products: Product[] = [
         category: 'Construcción',
         image: '/productos/calpasta7k.webp',
         icon: Droplets,
-        description: 'La solución definitiva para maestros de obra. Mayor volumen que asegura la continuidad en pegado de bloques y revestimientos sin interrupciones.',
+        description: 'La solución definitiva para maestros de obra. LA ALTA CALIDAD DE LOS FRISOS Y REVESTIMIENTO SIN INTERRUPCIONES.',
         features: [
-            'Cuñete de 7 kg de alto rendimiento',
+            'Bolsa de 7 kg de alto rendimiento',
             'Consistencia cremosa perfecta',
             'Ideal para cimentaciones sólidas',
             'Reduce desperdicios en obra'
         ],
         specifications: {
-            'Presentación': 'Cuñete de 7 kg',
+            'Presentación': 'Bolsa de 7 kg',
             'Uso': 'Profesional',
             'Rendimiento': '12-15 m² aprox.',
             'Adherencia': 'Premium'
@@ -93,7 +93,7 @@ const products: Product[] = [
         icon: Loader2,
         description: 'Almacenamiento industrial para obras de gran envergadura. El formato más eficiente para el manejo de grandes volúmenes de cal en pasta líquida.',
         features: [
-            'Envase plástico de alta durabilidad',
+            'Contenedor metálico de alta durabilidad',
             'Tapa con sello de seguridad',
             'Fácil transporte con carretilla',
             'Conserva la humedad por meses'
@@ -101,7 +101,7 @@ const products: Product[] = [
         specifications: {
             'Formato': 'Industrial',
             'Uso': 'Constructora / Distribuidor',
-            'Material': 'Polietileno Alta Densidad',
+            'Material': 'Acero reforzado / Metal',
             'Cierre': 'Hermético'
         }
     },
@@ -113,7 +113,7 @@ const products: Product[] = [
         icon: PackageSearch,
         description: 'La herramienta definitiva para el punto de venta. Maximiza tus ventas en ferretería con nuestra unidad de exhibición de alto impacto visual.',
         features: [
-            'Diseño optimizado para local',
+            'DISEÑO OPTIMIZADO PARA TU LOCAL, TIENDA O FERRETERÍA',
             'Capacidad para múltiples bolsas',
             'Publicidad integrada CalMiranda',
             'Orden y limpieza en el mostrador'
@@ -122,7 +122,7 @@ const products: Product[] = [
             'Tipo': 'Mobiliario de venta',
             'Uso': 'Ferretería / Retail',
             'Publicidad': 'Logo Full Color',
-            'Estructura': 'Ligera y resistente'
+            'Estructura': 'Metálica ligera y resistente'
         }
     }
 ];

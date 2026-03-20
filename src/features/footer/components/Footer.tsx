@@ -66,8 +66,13 @@ export const Footer: React.FC = () => {
                             <li className="flex items-start gap-3 group">
                                 <MapPin className="text-cal-emerald shrink-0 mt-1" size={20} />
                                 <span className="text-white/70 group-hover:text-white transition-colors">
-                                    <span className="block mb-1"><strong>Guatire:</strong> Sector La Mura, Calle Los Ríos, Galpón Nro. 4, Zona Industrial, Edo. Miranda.</span>
-                                    <span className="block"><strong>Caracas:</strong> Av. Principal, Edif. Abuela Flora, Piso 1, Apt 1A, Sector Hoyo de la Puerta, Caracas, Miranda, Zona Postal 1080.</span>
+                                    <strong>Guatire:</strong> Sector La Mura, Calle Los Ríos, Galpón Nro. 4, Zona Industrial, Edo. Miranda.
+                                </span>
+                            </li>
+                            <li className="flex items-start gap-3 group">
+                                <MapPin className="text-cal-emerald shrink-0 mt-1" size={20} />
+                                <span className="text-white/70 group-hover:text-white transition-colors">
+                                    <strong>Caracas:</strong> Av. Principal, Edif. Abuela Flora, Piso 1, Apt 1A, Sector Hoyo de la Puerta, Caracas, Miranda, Zona Postal 1080.
                                 </span>
                             </li>
                             <li className="flex items-center gap-3 group">
@@ -113,21 +118,41 @@ export const Footer: React.FC = () => {
 
                     </div>
 
-                    {/* Map Embed */}
                     <div className="lg:col-span-3">
                         <h4 className="text-lg font-bold font-montserrat mb-6 uppercase tracking-wider text-cal-bone">Ubicación</h4>
 
-                        <div className="w-full h-40 rounded-xl overflow-hidden border border-white/10 opacity-80 hover:opacity-100 transition-opacity duration-300">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.6200236034176!2d-66.54313552414739!3d10.463061291880572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDI3JzQ3LjAiTiA2NsKwMzInMjYuMCJX!5e0!3m2!1sen!2sve!4v1709346175058!5m2!1sen!2sve"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0 }}
-                                allowFullScreen={false}
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="CalMiranda Location"
-                            ></iframe>
+                        <div className="space-y-6">
+                            <div>
+                                <p className="text-[10px] text-white/40 mb-2 uppercase tracking-[0.2em] font-bold">Sede Principal Guatire</p>
+                                <div className="w-full h-32 rounded-xl overflow-hidden border border-white/10 opacity-70 hover:opacity-100 transition-opacity duration-300">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.6200236034176!2d-66.54313552414739!3d10.463061291880572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDI3JzQ3LjAiTiA2NsKwMzInMjYuMCJX!5e0!3m2!1sen!2sve!4v1709346175058!5m2!1sen!2sve"
+                                        width="100%"
+                                        height="100%"
+                                        style={{ border: 0 }}
+                                        allowFullScreen={false}
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        title="Sede Guatire"
+                                    ></iframe>
+                                </div>
+                            </div>
+
+                            <div>
+                                <p className="text-[10px] text-white/40 mb-2 uppercase tracking-[0.2em] font-bold">Sede Caracas</p>
+                                <div className="w-full h-32 rounded-xl overflow-hidden border border-white/10 opacity-70 hover:opacity-100 transition-opacity duration-300">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.935102!2d-66.8887!3d10.38449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDIzJzA0LjIiTiA2NsKwNTMnMTkuMyJX!5e0!3m2!1sen!2sve!4v1709346175058!5m2!1sen!2sve"
+                                        width="100%"
+                                        height="100%"
+                                        style={{ border: 0 }}
+                                        allowFullScreen={false}
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        title="Sede Caracas"
+                                    ></iframe>
+                                </div>
+                            </div>
                         </div>
 
                         <div className="mt-8">
