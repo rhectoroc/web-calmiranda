@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Droplets, Hammer, Loader2 } from 'lucide-react';
+import { Droplets, Hammer, Loader2, Brush, Ruler } from 'lucide-react';
 import { ProductCard } from './ProductCard';
 import type { Product } from '../types';
 
@@ -11,7 +11,7 @@ const products: Product[] = [
         category: 'Construcción',
         image: '/productos/calpasta5k.webp',
         icon: Hammer,
-        description: 'Cal en pasta líquida de alta pureza, lista para usar. Formulada para garantizar la máxima adherencia en frisos y pegado de bloques, optimizando el tiempo en obra.',
+        description: 'Cal en pasta líquida de alta pureza, lista para usar. Ideal para clientes mayoristas (compras mayores a 500 unidades).',
         features: [
             'Empaque práctico de 5 kg',
             'Excelente trabajabilidad',
@@ -46,23 +46,63 @@ const products: Product[] = [
         }
     },
     {
-        id: 'pipote-de-cal',
-        name: 'Pipote de Cal',
-        category: 'Materia Prima',
+        id: 'cal-en-polvo-4kg',
+        name: 'Cal en Polvo 4 kg',
+        category: 'Construcción',
+        image: '/Polvo/polvo01.jpeg',
+        icon: Ruler,
+        description: 'Cal hidratada de alta pureza en formato de 4 kg. Perfecta para estabilización de suelos y mezclas secas.',
+        features: [
+            'Alta pureza',
+            'Fácil de mezclar',
+            'Empaque resistente',
+            '98% Carbonato'
+        ],
+        specifications: {
+            'Presentación': 'Bolsa de 4 kg',
+            'Tipo': 'Cal Hidratada',
+            'Uso': 'Multiuso / Estabilización',
+            'Pureza': '98% Carbonato'
+        }
+    },
+    {
+        id: 'pintura-ecologica',
+        name: 'Pintura Ecológica',
+        category: 'Acabados',
+        image: '/Hero2.webp', // Using a generic placeholder for now, or I could use Pintura specific if found
+        icon: Brush,
+        description: 'Pintura base cal 100% natural, transpirable y antimicrobiana. La mejor opción sostenible para interiores y exteriores.',
+        features: [
+            '100% Natural',
+            'Antimicrobiana',
+            'Transpirable',
+            'Bajo COV'
+        ],
+        specifications: {
+            'Base': 'Cal de alta pureza',
+            'Propiedad': 'Antimicrobiana',
+            'Ambiente': 'Interiores / Exteriores',
+            'Sostenibilidad': '100% Ecológica'
+        }
+    },
+    {
+        id: 'pipote-de-cal-en-pasta',
+        name: 'Pipote de Cal en Pasta',
+        category: 'Exhibición',
         image: '/productos/pipotedecal.webp',
         icon: Loader2,
-        description: 'Venta por volumen en formato de pipote. Ideal para contratistas y retail que buscan abastecerse con el agregado esencial para sus mezclas comerciales.',
+        description: 'Pipote muestrario grande diseñado para ferreterías. Permite exhibir y almacenar bolsas de cal de manera eficiente.',
         features: [
             'Formato industrial',
-            'Ahorro por volumen',
-            'Calidad certificada CalMiranda',
-            'Disponible para despacho inmediato'
+            'Ideal para ferreterías',
+            'Almacenamiento optimizado',
+            'Presencia de marca'
         ],
         specifications: {
             'Formato': 'Pipote industrial',
-            'Uso': 'Materia prima / Mezclas',
-            'Distribución': 'Venta al mayor',
-            'Pureza': '98% Carbonato de Calcio'
+            'Uso': 'Exhibición / Almacenaje',
+            'Capacidad': 'Gran formato',
+            'Material': 'Plástico reforzado'
         }
     }
 ];

@@ -12,6 +12,7 @@ import { ChatProvider } from './features/assistant/context/ChatContext';
 import { FranchiseHero } from './features/franchise/components/FranchiseHero';
 import { FranchiseBenefitCards } from './features/franchise/components/FranchiseBenefitCards';
 import { FranchiseRequirements } from './features/franchise/components/FranchiseRequirements';
+import { HomeSolutions } from './features/solutions/components/HomeSolutions';
 import { LegalPage } from './features/legal/components/LegalPage';
 import { privacyPolicyContent } from './features/legal/constants/privacyPolicy';
 import { termsOfServiceContent } from './features/legal/constants/termsOfService';
@@ -28,6 +29,7 @@ const HomePage: React.FC = () => {
       <div id="pilares">
         <PillarsSection />
       </div>
+      <HomeSolutions />
       <div id="productos">
         <ProductsCatalog />
       </div>
