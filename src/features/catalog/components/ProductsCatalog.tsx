@@ -49,7 +49,7 @@ const products: Product[] = [
         id: 'cal-en-polvo-4kg',
         name: 'Cal en Polvo 4 kg',
         category: 'Construcción',
-        image: '/Polvo/polvo01.jpeg',
+        image: '/Polvo/polvo01.jpg',
         icon: Ruler,
         description: 'Cal hidratada micronizada de alta reactividad. Esencial para estabilización de suelos y mezclas secas que requieren precisión absoluta.',
         features: [
