@@ -106,24 +106,27 @@ export const HomeSolutions: React.FC = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-20 p-8 md:p-12 rounded-3xl bg-linear-to-br from-cal-charcoal to-cal-charcoal/95 text-white relative overflow-hidden"
+                    className="mt-20 p-8 md:p-12 rounded-3xl bg-cal-dark text-white relative overflow-hidden shadow-2xl"
                 >
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-cal-emerald/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-cal-emerald/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl opacity-30" />
                     
                     <div className="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
                         <div className="max-w-2xl">
-                            <h3 className="text-2xl md:text-3xl font-bold mb-4">¿Necesitas agregados para tu construcción?</h3>
-                            <p className="text-white/70 text-lg">
+                            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white!">¿Necesitas agregados para tu construcción?</h3>
+                            <p className="text-white/90 text-lg">
                                 Te garantizamos productos de calidad que puedes transportar en tu propio vehículo y adquirir en cualquier ferretería, cualquier día de la semana.
                             </p>
                         </div>
-                        <motion.button
+                        <motion.a
+                            href="https://wa.link/zarsri"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-4 bg-cal-emerald text-white rounded-xl font-bold text-lg hover:bg-cal-emerald-dark transition-all shadow-lg shadow-cal-emerald/20"
+                            className="px-8 py-4 bg-cal-emerald text-white rounded-xl font-bold text-lg hover:bg-cal-emerald-dark transition-all shadow-lg shadow-cal-emerald/20 inline-block text-center"
                         >
                             Solicitar Asesoría
-                        </motion.button>
+                        </motion.a>
                     </div>
                 </motion.div>
             </div>

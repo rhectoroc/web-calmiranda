@@ -18,7 +18,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
     const handleQuoteRequest = () => {
         onClose();
         setTimeout(() => {
-            openChat();
+            openChat(true);
             sendMessage(`Hola, me gustaría solicitar una cotización para el producto: ${product.name}`);
         }, 300);
     };

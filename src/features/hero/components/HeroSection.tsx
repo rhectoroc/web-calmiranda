@@ -112,7 +112,7 @@ export const HeroSection: React.FC = () => {
                                 className="block text-3xl md:text-7xl text-cal-emerald-light font-bold drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] select-none italic"
                                 style={{ fontFamily: "'Caveat', cursive", color: '#0DF205', textShadow: '2px 2px 0px rgba(0,0,0,0.2)' }}
                             >
-                                ¡Vamos Positivos!
+                                ¡Vamos Positivo!
                             </span>
                         </motion.div>
                     </div>

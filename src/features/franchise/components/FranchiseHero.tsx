@@ -12,20 +12,6 @@ export const FranchiseHero: React.FC = () => {
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
                 <div className="absolute -top-24 -right-24 w-96 h-96 bg-cal-emerald/5 rounded-full blur-3xl" />
                 <div className="absolute top-1/2 -left-24 w-72 h-72 bg-cal-earth/5 rounded-full blur-3xl" />
-                
-                {/* Machinery Illustration (Tina) */}
-                <motion.div 
-                    initial={{ opacity: 0, x: 100 }}
-                    whileInView={{ opacity: 0.15, x: 0 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="absolute right-0 bottom-0 w-1/2 h-2/3 opacity-15 hidden lg:block"
-                >
-                    <img 
-                        src="/Tina/tina01.jpeg" 
-                        alt="Maquinaria de producción CalMiranda" 
-                        className="w-full h-full object-contain object-bottom-right mix-blend-multiply"
-                    />
-                </motion.div>
             </div>
 
             <div className="container mx-auto max-w-5xl relative z-10 text-center">

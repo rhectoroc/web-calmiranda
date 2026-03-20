@@ -10,7 +10,7 @@ interface ChatContextType {
     isOpen: boolean;
     messages: Message[];
     inputValue: string;
-    openChat: () => void;
+    openChat: (skipWelcome?: boolean) => void;
     closeChat: () => void;
     toggleChat: () => void;
     sendMessage: (text: string) => void;
@@ -23,19 +23,31 @@ const ChatContext = createContext<ChatContextType | undefined>(undefined);
 
 export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState<Message[]>([
-        { text: "¡Hola! Soy Diamantín, tu asistente virtual de CalMiranda. ¿En qué puedo ayudarte hoy?", isBot: true }
-    ]);
+    const [messages, setMessages] = useState<Message[]>([]);
     const [inputValue, setInputValue] = useState("");
     const [isTyping, setIsTyping] = useState(false);
     const [sessionId] = useState(() => Math.random().toString(36).substring(7));
 
-    const openChat = useCallback(() => setIsOpen(true), []);
+    const openChat = useCallback((skipWelcome?: boolean) => {
+        setIsOpen(true);
+        // Only add welcome message if the chat is completely empty and not skipped
+        if (!skipWelcome) {
+            setMessages(prev => {
+                if (prev.length === 0) {
+                    return [{ text: "¡Hola! Soy Diamantín, tu asistente virtual de CalMiranda. ¿En qué puedo ayudarte hoy?", isBot: true }];
+                }
+                return prev;
+            });
+        }
+    }, []);
+    
     const closeChat = useCallback(() => setIsOpen(false), []);
     const toggleChat = useCallback(() => setIsOpen(prev => !prev), []);
 
     const sendMessage = useCallback(async (text: string) => {
         if (!text.trim()) return;
+
+        const isFirstMessage = messages.length === 0 || (messages.length === 1 && messages[0].isBot);
 
         // Add user message to UI
         setMessages(prev => [...prev, { text, isBot: false }]);
@@ -56,6 +68,7 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
                         chatInput: text,
                         action: 'sendMessage',
                         sessionId: sessionId,
+                        isFirstMessage: isFirstMessage,
                         timestamp: new Date().toISOString(),
                         source: 'CalMiranda Chatbot'
                     }),
