@@ -26,7 +26,7 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const [messages, setMessages] = useState<Message[]>([]);
     const [inputValue, setInputValue] = useState("");
     const [isTyping, setIsTyping] = useState(false);
-    const [sessionId] = useState(() => Math.random().toString(36).substring(7));
+    const [sessionId] = useState(() => 'web_' + Math.random().toString(36).substring(7));
 
     const openChat = useCallback((skipWelcome?: boolean) => {
         setIsOpen(true);
@@ -34,7 +34,7 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         if (!skipWelcome) {
             setMessages(prev => {
                 if (prev.length === 0) {
-                    return [{ text: "¡Hola! Soy Diamantín, tu asistente virtual de CalMiranda. ¿En qué puedo ayudarte hoy?", isBot: true }];
+                    return [{ text: "¡Hola! Bienvenido a CalMiranda. Soy Diamantin, su asistente virtual. ¿En qué puedo ayudarle hoy? ¡Vamos positivos!", isBot: true }];
                 }
                 return prev;
             });
